@@ -1,5 +1,6 @@
 Stamina/Health Bar: 
 https://www.youtube.com/watch?v=f90ieBOoIYQ
+https://www.youtube.com/watch?v=GPYSACim_P4
 
 Basic tutorial: 
 https://www.youtube.com/watch?v=Luf2Kr5s3BM
@@ -14,3 +15,17 @@ https://forum.godotengine.org/t/godot-4-2d-movement-causing-ghost-jitter-blur-fi
 
 Anchors för stamina bar: 
 https://www.youtube.com/watch?v=Yy6yFBalL7k
+
+Canvaslayer för stamina bar: 
+https://docs.godotengine.org/en/stable/classes/class_canvaslayer.html
+
+Ändra färg på stamina bar: 
+https://forum.godotengine.org/t/godot-4-0-change-progress-bar-fill-color/627/2
+
+Ändra corner radius på stamina bar: 
+https://docs.godotengine.org/en/latest/classes/class_styleboxflat.html#class-styleboxflat-property-corner-radius-bottom-left
+https://docs.godotengine.org/en/stable/classes/class_styleboxflat.html
+
+Resolution ändring med kod: 
+https://forum.godotengine.org/t/how-to-properly-set-project-settings-and-change-resolution-with-code-for-2d-game/67735
+https://www.reddit.com/r/godot/comments/z6cq2w/how_do_i_change_the_screen_resolution_with_code/

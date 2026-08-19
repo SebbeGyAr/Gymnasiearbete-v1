@@ -9,4 +9,8 @@ https://www.youtube.com/watch?v=zH8nxWt9ojs
 
 Försökte hitta en tutorial för sprinting men fann aldrig någon för det movement systemet vi har så körde på en del trial and error, det verkar fungera i nuläget
 
-Anti Jitter/Ghosting/Screen Tearing/Input Lag
+Anti Jitter/Ghosting/Screen Tearing/Input Lag: 
+https://forum.godotengine.org/t/godot-4-2d-movement-causing-ghost-jitter-blur-fix/62706
+
+Anchors för stamina bar: 
+https://www.youtube.com/watch?v=Yy6yFBalL7k

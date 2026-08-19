@@ -51,11 +51,11 @@ func _physics_process(_delta):
 		staminaRecoverySpeed *= 2
 	
 	# KOLLAR VÄRDEN I TESTSYFTEN
-	print("
-	Stamina: ", stamina, "
-	StaminaOnCooldown: ", staminaOnCooldown, "
-	Velocity: ", velocity, "
-	StaminaRecoverySpeed: ", staminaRecoverySpeed)
+	# print("
+	# Stamina: ", stamina, "
+	# StaminaOnCooldown: ", staminaOnCooldown, "
+	# Velocity: ", velocity, "
+	# StaminaRecoverySpeed: ", staminaRecoverySpeed)
 			
 	# SÄTTER VELOCITY
 	velocity = inputDirection.normalized() * movementSpeed

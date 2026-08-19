@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://csrxwro56cmji"]
+
+[ext_resource type="Script" uid="uid://bvtfq60f5tq4g" path="res://stamina_bar.gd" id="1_e08ep"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jqe8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ok42"]
+bg_color = Color(0.28599998, 0.36789998, 0.52, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1925, 0.247625, 0.35, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 12
+
+[node name="CameraLockedBars" type="Node2D" unique_id=1256806591]
+metadata/_edit_lock_ = true
+
+[node name="StaminaBar" type="ProgressBar" parent="." unique_id=1112274667]
+z_index = 10
+offset_right = 160.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_4jqe8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ok42")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_e08ep")
+metadata/_edit_use_anchors_ = true
+
+[node name="STAMINAtextlabel" type="RichTextLabel" parent="." unique_id=654868989]
+z_index = 11
+offset_right = 160.0
+offset_bottom = 32.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "STAMINA"
+horizontal_alignment = 1
+vertical_alignment = 1

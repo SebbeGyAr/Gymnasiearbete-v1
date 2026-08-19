@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://ds6qvsnjco1gi"]
 
 [ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://Characters/player_character.tscn" id="1_up8ek"]
-[ext_resource type="Script" uid="uid://bowcp6rrgs3ra" path="res://Levels/game_level.gd" id="1_xk4lf"]
 [ext_resource type="Texture2D" uid="uid://2jkvwxhpnbx" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="2_34xkg"]
 [ext_resource type="Texture2D" uid="uid://c8j3hard0jlrr" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="2_wlvk4"]
 [ext_resource type="Texture2D" uid="uid://c68k0gdpc260u" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="3_wmi5p"]
@@ -301,46 +300,32 @@ sources/3 = SubResource("TileSetAtlasSource_bskef")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlvk4"]
 texture = ExtResource("2_wlvk4")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, -6, 8, -6, -6, 8, -6)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6, -8, -8, 8, -8, 8, -6)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, -8, -8, -8, -6, 6, -6, 6, 8)
 3:0/0 = 0
 4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, -8, -8, -8, 8, -6, 8, -6, -6, 8, -6)
 5:0/0 = 0
 6:0/0 = 0
 7:0/0 = 0
-7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, 8, -8, -8, -8, -8, -6, 6, -6, 6, 8)
 8:0/0 = 0
 9:0/0 = 0
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 8, -8, 8, -8, -8, -6, -8)
 1:1/0 = 0
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, -8, 8, -8, 8, 8, 6, 8)
 3:1/0 = 0
 4:1/0 = 0
 5:1/0 = 0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(6, 8, 8, 8, 8, 6, 6, 6)
 6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 6, -8, 8, -6, 8, -6, 6)
 7:1/0 = 0
 8:1/0 = 0
 9:1/0 = 0
 0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, 6, -6, 6, -6, -8)
 1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 6, 8, 8, -8, 8, -8, 6)
 2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, 6, -8, 6, 6, -8, 6)
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
-5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -6, 8, -8, 6, -8, 6, -6)
 6:2/0 = 0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, -8, -8, -8, -6, -6, -6)
 7:2/0 = 0
 8:2/0 = 0
 9:2/0 = 0
@@ -350,11 +335,9 @@ texture = ExtResource("2_wlvk4")
 2:3/0 = 0
 3:3/0 = 0
 4:3/0 = 0
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, 6, -6, 6, -6, -8)
 5:3/0 = 0
 6:3/0 = 0
 7:3/0 = 0
-7:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, 6, -8, 6, 6, -8, 6)
 8:3/0 = 0
 9:3/0 = 0
 10:3/0 = 0
@@ -600,7 +583,6 @@ texture = ExtResource("3_wmi5p")
 sources/3 = SubResource("TileSetAtlasSource_wmi5p")
 
 [node name="GameLevel" type="Node2D" unique_id=2141731807]
-script = ExtResource("1_xk4lf")
 
 [node name="PlayerCharacter" parent="." unique_id=610594714 instance=ExtResource("1_up8ek")]
 position = Vector2(148, 166)

@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	# SPRINTFUNKTION, KOMMER TROLIGEN FINJUSTERAS MKT
 	staminaOnCooldown = max(staminaOnCooldown - staminaRecoverySpeed, 0)
 
-	var is_sprinting = Input.is_action_pressed("sprint") and stamina > 0 and staminaOnCooldown == 0
+	var is_sprinting = Input.is_action_pressed("sprint") and stamina > 0 and staminaOnCooldown == 0 and velocity > Vector2.ZERO
 
 	if is_sprinting:
 		movementSpeed = MOVEMENT_SPEED_CONST * SPRINT_SPEED

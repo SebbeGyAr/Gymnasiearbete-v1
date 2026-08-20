@@ -296,17 +296,41 @@ texture = ExtResource("5_afl82")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jw0rm"]
 texture = ExtResource("7_ese5x")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, -5, 8, -7, 8, -7, -5)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(7, -5, 7, 8, 5, 8, 5, -5)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -1, -5, 8, -7, 8, -7, -1)
+1:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(7, -1, 7, 8, 5, 8, 5, -1)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 5, 8, 5, 8, 7, -5, 7)
+2:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-5, -7, 8, -7, 8, -5, -5, -5)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5, -8, -5, -8, -7, 8, -7)
+3:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(8, 7, -8, 7, -8, 5, 8, 5)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -5, -8, -5, -8, -7, 4, -7)
+4:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(4, 7, -8, 7, -8, 5, 4, 5)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, -5, 8, -7, 8, -7, -8)
+0:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(7, -8, 7, 8, 5, 8, 5, -8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, -5, 8, -7, 8, -7, -8)
+1:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(7, -8, 7, 8, 5, 8, 5, -8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, 5, 8, 5, 8, 7, -1, 7)
+2:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(-1, -7, 8, -7, 8, -5, -1, -5)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5, -8, -5, -8, -7, 8, -7)
+3:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(8, 7, -8, 7, -8, 5, 8, 5)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -5, -8, -5, -8, -7, 0, -7)
+4:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(0, 7, -8, 7, -8, 5, 0, 5)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, 4, 5, -8, 7, -8, 7, 4)
+0:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-7, 4, -7, -8, -5, -8, -5, 4)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(5, 0, 5, -8, 7, -8, 7, 0)
+1:2/0/physics_layer_0/polygon_1/points = PackedVector2Array(-7, 0, -7, -8, -5, -8, -5, 0)
 
 [sub_resource type="TileSet" id="TileSet_7ok42"]
 physics_layer_0/collision_layer = 1
@@ -718,3 +742,5 @@ offset_right = 162.0
 offset_bottom = 34.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4jqe8")
 metadata/_edit_lock_ = true
+
+[editable path="PlayerCharacter"]

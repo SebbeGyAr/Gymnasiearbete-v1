@@ -180,17 +180,21 @@ animation = &"idleLeft"
 animation = &"idleRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7htjj"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_6p1uj")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_ytmdm")
-blend_point_1/pos = Vector2(0, -1.1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_eytmh")
-blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_iung0")
-blend_point_3/pos = Vector2(1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_6p1uj")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_ytmdm")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_eytmh")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_iung0")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7htjj"]
 animation = &"walkRight"
@@ -206,18 +210,22 @@ animation = &"walkForward"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ux05a"]
 auto_triangles = false
-blend_point_0/node = SubResource("AnimationNodeAnimation_7htjj")
-blend_point_0/pos = Vector2(1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_ux05a")
-blend_point_1/pos = Vector2(-1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_r3ppt")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_4yrsj")
-blend_point_3/pos = Vector2(0, 1.1)
 triangles = PackedInt32Array(0, 1, 2, 0, 1, 3)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_7htjj")
+blend_point_0/pos = Vector2(1, 0)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_ux05a")
+blend_point_1/pos = Vector2(-1, 0)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_r3ppt")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_4yrsj")
+blend_point_3/pos = Vector2(0, 1.1)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r3ppt"]
 priority = 0
@@ -248,10 +256,12 @@ z_index = 2
 texture = ExtResource("1_06jaf")
 hframes = 4
 vframes = 4
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1664869382]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_6p1uj")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1194234077]
 libraries/ = SubResource("AnimationLibrary_eytmh")
@@ -262,21 +272,18 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0.10126579, -0.1012699)
 parameters/Walk/blend_position = Vector2(0, 0)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1261976311 node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=232579128 node_paths=PackedStringArray("player")]
 physics_interpolation_mode = 1
-position = Vector2(1, 1)
+zoom = Vector2(3, 3)
 process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1088
 limit_smoothed = true
-position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_top_margin = 0.3
-drag_right_margin = 0.5
-drag_bottom_margin = 0.3
+drag_left_margin = 0.4
+drag_right_margin = 0.4
 script = ExtResource("3_ytmdm")
 player = NodePath("..")

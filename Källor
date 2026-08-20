@@ -32,7 +32,12 @@ Resolution ändring med kod:
 https://forum.godotengine.org/t/how-to-properly-set-project-settings-and-change-resolution-with-code-for-2d-game/67735
 https://www.reddit.com/r/godot/comments/z6cq2w/how_do_i_change_the_screen_resolution_with_code/
 https://docs.godotengine.org/en/stable/tutorials/rendering/multiple_resolutions.html
+https://www.reddit.com/r/godot/comments/182zstw/what_is_the_correct_way_of_implementing/
 
 Ändra kamera med kod: 
 https://docs.godotengine.org/en/latest/classes/class_camera2d.html#
-https://forum.godotengine.org/t/how-do-i-offset-the-2d-camera-based-on-the-direction-the-player-is-facing/8190/2
+https://forum.godotengine.org/t/how-do-i-offset-the-2d-camera-based-on-the-direction-the-player-is-facing/8190
+
+Smoothing med kameran
+https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
+https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#vector-interpolation

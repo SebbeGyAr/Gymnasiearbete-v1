@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	var camera_speed = 100 * delta
 	
 	var camera = $PlayerCharacter/Camera2D
+	
 	if inputDirection.x > 0: 
 		camera.offset.x = min(camera.offset.x + camera_speed, target_distance)
 		
@@ -38,3 +39,6 @@ func _physics_process(delta: float) -> void:
 		
 	elif inputDirection.y < 0:
 		camera.offset.y = max(camera.offset.y - camera_speed, -target_distance)
+	
+	if inputDirection == Vector2.ZERO:
+		camera.offset = camera.offset.move_toward(Vector2.ZERO, camera_speed)

@@ -9,7 +9,7 @@ var resolutions := { # resolutions list
 }
 
 # KANSKE LÖSER SCREEN TEARING, GHOSTING OCH INPUT LAG VID 30 IFALL DET DYKER UPP VID HÖGRE
-@export var maxFPS = 60
+@export var maxFPS = 30
 #@export var player: Node
 
 func _ready():
@@ -21,18 +21,19 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 	
-	#print($PlayerCharacter.get_screen_transform()[2].x)
+	#print($PlayerCharacter.get_screen_transform()[2])
 	
-	var target_distance = 100
-	var camera_speed = 100 * delta
+	var target_distance = 75
+	var camera_speed = 50 * delta
 	
 	var camera = $PlayerCharacter/Camera2D
 	
 	if inputDirection.x > 0: 
-		camera.offset.x = min(camera.offset.x + camera_speed, target_distance)
+		camera.offset.x = min(camera.offset.x + camera_speed, (16/9) * target_distance)
 		
 	elif inputDirection.x < 0: 
-		camera.offset.x = max(camera.offset.x - camera_speed, -target_distance)
+		
+		camera.offset.x = max(camera.offset.x - camera_speed, -(16/9) * target_distance)
 		
 	if inputDirection.y > 0:
 		camera.offset.y = min(camera.offset.y + camera_speed, target_distance)
@@ -41,4 +42,4 @@ func _physics_process(delta: float) -> void:
 		camera.offset.y = max(camera.offset.y - camera_speed, -target_distance)
 	
 	if inputDirection == Vector2.ZERO:
-		camera.offset = camera.offset.move_toward(Vector2.ZERO, camera_speed)
+		camera.offset = camera.offset.move_toward(Vector2.ZERO, 1.5 * camera_speed)

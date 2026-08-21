@@ -28,17 +28,19 @@ func _physics_process(delta: float) -> void:
 	
 	var camera = $PlayerCharacter/Camera2D
 	#print(DisplayServer.window_get_size())
+	
+	
 	if inputDirection.x > 0: 
 		if $PlayerCharacter.get_screen_transform()[2].x > DisplayServer.window_get_size().x / 2 - 1:
 			restoreMult = 2
 		else: restoreMult = 1
-		camera.offset.x = min(camera.offset.x + camera_speed * restoreMult, (16/9) * target_distance)
+		camera.offset.x = min(camera.offset.x + camera_speed * restoreMult, 2 * target_distance)
 		
 	elif inputDirection.x < 0: 
 		if $PlayerCharacter.get_screen_transform()[2].x < DisplayServer.window_get_size().x / 2 - 1:
 			restoreMult = 2
 		else: restoreMult = 1
-		camera.offset.x = max(camera.offset.x - camera_speed * restoreMult, -(16/9) * target_distance)
+		camera.offset.x = max(camera.offset.x - camera_speed * restoreMult, -2 * target_distance)
 		
 	if inputDirection.y > 0:
 		if $PlayerCharacter.get_screen_transform()[2].y > DisplayServer.window_get_size().y / 2 - 1:

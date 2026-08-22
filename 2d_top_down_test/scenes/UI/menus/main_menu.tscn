@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3q10rmv074sx"]
 
 [ext_resource type="Theme" uid="uid://vifxtjbmrwv4" path="res://Assets/Themes/DefaultTheme.tres" id="1_hvwfg"]
-[ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://Scenes/UI/Menus/main_menu.gd" id="2_i77qe"]
+[ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://scenes/UI/Menus/main_menu.gd" id="2_i77qe"]
 
 [node name="MainMenu" type="Control" unique_id=718903573]
 layout_mode = 3

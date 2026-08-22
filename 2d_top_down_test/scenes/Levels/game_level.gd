@@ -10,16 +10,19 @@ var resolutions =[
 
 # KANSKE LÖSER SCREEN TEARING, GHOSTING OCH INPUT LAG VID 30 IFALL DET DYKER UPP VID HÖGRE
 @export var maxFPS = 240
+@export var player = Node2D
 @onready var camera = $PlayerCharacter/Camera2D
 
 var i = 0
 
 func _ready() -> void:
-	Engine.max_fps = maxFPS 
-	var player = get_tree().get_first_node_in_group("PlayerCharacter")
+	Engine.max_fps = maxFPS
 	var spawnName = SceneTransition.nextSpawnPoint
-	if spawnName != "" and has_node(spawnName):
-		player.global_position = get_node(spawnName).global_position
+	if spawnName != "":
+		var spawn_node = find_child(spawnName, true, false)
+		if spawn_node:
+			player.global_position = spawn_node.global_position
+
 
 func _physics_process(delta: float) -> void:
 	var inputDirection = Vector2(

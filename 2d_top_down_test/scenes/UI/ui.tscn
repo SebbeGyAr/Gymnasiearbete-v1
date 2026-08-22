@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bigwb8yqprkjw"]
 
-[ext_resource type="Script" uid="uid://bvtfq60f5tq4g" path="res://Scenes/UI/stamina_bar.gd" id="1_suays"]
+[ext_resource type="Script" uid="uid://bvtfq60f5tq4g" path="res://scenes/UI/stamina_bar.gd" id="1_suays"]
 [ext_resource type="FontFile" uid="uid://biai2qt1cpai" path="res://Assets/Fonts/KimsBitHand.ttf" id="2_41gti"]
-[ext_resource type="PackedScene" uid="uid://3q10rmv074sx" path="res://Scenes/UI/Menus/main_menu.tscn" id="2_yb1mt"]
+[ext_resource type="PackedScene" uid="uid://3q10rmv074sx" path="res://scenes/UI/Menus/main_menu.tscn" id="2_yb1mt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41gti"]
 

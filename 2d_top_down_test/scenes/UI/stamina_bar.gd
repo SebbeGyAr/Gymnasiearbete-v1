@@ -1,7 +1,5 @@
 extends ProgressBar
 
-signal startGame()
-
 var staminaBar = StyleBoxFlat.new()
 
 @export var player: Node
@@ -20,6 +18,3 @@ func _process(_delta):
 		staminaBar.bg_color = Color("495e85ff")
 		staminaBar.border_color = Color(0.22, 0.283, 0.4, 1.0)
 	
-
-func _on_main_menu_start_game() -> void:
-	startGame.emit()

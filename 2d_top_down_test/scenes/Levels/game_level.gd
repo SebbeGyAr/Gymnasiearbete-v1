@@ -30,9 +30,9 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
 	#print($PlayerCharacter.get_screen_transform()[2])
-	
+
 	#print(DisplayServer.window_get_size())
-	
+
 	if Input.is_action_just_pressed("ui_cancel"): 
 		get_tree().change_scene_to_file("res://scenes/UI/menus/main_menu.tscn")
 
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	var smoothSpeed = 2.0
 	var targetOffset = Vector2.ZERO
 	var targetDistance = 25
-	
+
 
 
 	if inputDirection.x > 0:

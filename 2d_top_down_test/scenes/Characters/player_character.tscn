@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cd0j5v43rg5p4"]
 
 [ext_resource type="Texture2D" uid="uid://ys805pingawg" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_06jaf"]
-[ext_resource type="Script" uid="uid://dopb8x214w806" path="res://Scenes/Characters/player_character.gd" id="1_6p1uj"]
+[ext_resource type="Script" uid="uid://dopb8x214w806" path="res://scenes/Characters/player_character.gd" id="1_6p1uj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p1uj"]
 size = Vector2(8, 4)
@@ -284,3 +284,5 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.4
 drag_right_margin = 0.4
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1227171979]

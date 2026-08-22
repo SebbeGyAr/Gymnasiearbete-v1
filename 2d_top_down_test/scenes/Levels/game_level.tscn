@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://wx7slufvgw7i" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="9_mtha5"]
 [ext_resource type="Texture2D" uid="uid://dv0a437jdf8dv" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="10_msle1"]
 [ext_resource type="Script" uid="uid://wraqyp55rlyd" path="res://scenes/Levels/house_enter.gd" id="13_mtha5"]
+[ext_resource type="PackedScene" uid="uid://n8alfvo8a66m" path="res://scenes/Non Character Entities/cow.tscn" id="14_msle1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ese5x"]
 texture = ExtResource("3_p3vto")
@@ -867,6 +868,9 @@ metadata/_edit_lock_ = true
 
 [node name="HouseExitSpawn" type="Node2D" parent="." unique_id=1627048943]
 position = Vector2(796, 306)
+
+[node name="Cow" parent="." unique_id=1729804481 instance=ExtResource("14_msle1")]
+position = Vector2(559, 255)
 
 [connection signal="body_entered" from="HouseEnterTrigger" to="HouseEnterTrigger" method="_on_body_entered"]
 

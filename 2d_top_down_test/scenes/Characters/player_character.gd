@@ -16,12 +16,22 @@ var stamina = float(100)
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
 
-
+var Bullet = preload("res://scenes/Non Character Entities/bullet.tscn")
 
 func _ready():
 	update_animation_parameters(startingDirection)
 
+func shoot():
+	var b = Bullet.instantiate()
+	get_parent().add_child(b)
+	b.global_position = $Muzzle.global_position
+	var direction = (get_global_mouse_position() - $Muzzle.global_position).normalized()
+	b.rotation = direction.angle()
+
 func _physics_process(_delta): 
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1]
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 

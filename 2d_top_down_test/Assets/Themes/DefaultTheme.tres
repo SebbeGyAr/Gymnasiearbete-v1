@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://vifxtjbmrwv4"]
+
+[ext_resource type="FontFile" uid="uid://biai2qt1cpai" path="res://Assets/Fonts/KimsBitHand.ttf" id="1_xxred"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nnhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jec07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvh08"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlbkl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spi1c"]
+
+[resource]
+default_font = ExtResource("1_xxred")
+default_font_size = 16
+Button/colors/font_focus_color = Color(0.2509804, 0.38431373, 0.5921569, 1)
+Button/colors/font_hover_color = Color(0.72156864, 0.83137256, 1, 1)
+Button/colors/font_pressed_color = Color(0.20784314, 0.26666668, 0.38039216, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_8nnhx")
+Button/styles/focus = SubResource("StyleBoxEmpty_jec07")
+Button/styles/hover = SubResource("StyleBoxEmpty_uvh08")
+Button/styles/normal = SubResource("StyleBoxEmpty_dlbkl")
+Button/styles/pressed = SubResource("StyleBoxEmpty_spi1c")

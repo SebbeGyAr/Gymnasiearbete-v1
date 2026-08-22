@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://3q10rmv074sx"]
+
+[ext_resource type="Theme" uid="uid://vifxtjbmrwv4" path="res://Assets/Themes/DefaultTheme.tres" id="1_hvwfg"]
+[ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://scenes/UI/menus/main_menu.gd" id="2_i77qe"]
+
+[node name="MainMenu" type="Control" unique_id=718903573]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hvwfg")
+script = ExtResource("2_i77qe")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1444292377]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06666667, 0.08627451, 0.12156863, 1)
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1459205660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=913782606]
+layout_mode = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=999638927]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 64
+text = "Superduperbestgame"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=905333597]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=982132633]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../QuitGameButton")
+focus_neighbor_bottom = NodePath("../QuitGameButton")
+focus_next = NodePath("../QuitGameButton")
+focus_previous = NodePath("../QuitGameButton")
+theme_override_font_sizes/font_size = 32
+text = "Start Game"
+
+[node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1014486413]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_bottom = NodePath("../StartGameButton")
+focus_next = NodePath("../StartGameButton")
+focus_previous = NodePath("../StartGameButton")
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

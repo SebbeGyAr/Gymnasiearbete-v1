@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bigwb8yqprkjw"]
+
+[ext_resource type="Script" uid="uid://bvtfq60f5tq4g" path="res://scenes/UI/stamina_bar.gd" id="1_suays"]
+[ext_resource type="FontFile" uid="uid://biai2qt1cpai" path="res://Assets/Fonts/KimsBitHand.ttf" id="2_41gti"]
+[ext_resource type="PackedScene" uid="uid://3q10rmv074sx" path="res://scenes/UI/menus/main_menu.tscn" id="2_yb1mt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41gti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54a5"]
+bg_color = Color(0.28599998, 0.36789998, 0.52, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.1925, 0.247625, 0.35, 1)
+border_blend = true
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yb1mt"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_detail = 16
+
+[node name="UI" type="CanvasLayer" unique_id=1338327035]
+
+[node name="Control" type="Control" parent="." unique_id=1959933703]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaminaBar" type="Control" parent="Control" unique_id=663732513]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaminaBar" type="ProgressBar" parent="Control/StaminaBar" unique_id=1658642045]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 161.0
+offset_bottom = 33.0
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_41gti")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f54a5")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_suays")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="Control/StaminaBar" unique_id=1847217506]
+layout_mode = 0
+offset_right = 162.0
+offset_bottom = 34.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yb1mt")
+metadata/_edit_lock_ = true
+
+[node name="STAMINAtextlabel" type="RichTextLabel" parent="Control/StaminaBar" unique_id=290549244]
+z_index = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 161.0
+offset_bottom = 33.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_41gti")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+text = "STAMINA"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MainMenu" parent="Control" unique_id=718903573 instance=ExtResource("2_yb1mt")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[connection signal="startGame" from="Control/MainMenu" to="Control/StaminaBar/StaminaBar" method="_on_main_menu_start_game"]

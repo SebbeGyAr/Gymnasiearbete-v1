@@ -18,6 +18,7 @@ https://docs.godotengine.org/en/stable/classes/class_styleboxflat.html
 
 Basic tutorial: 
 https://www.youtube.com/watch?v=Luf2Kr5s3BM
+https://youtu.be/V4SO7foDoW4?is=a_WkeMr0b5riPZoV
 
 Animerade Tilemaps: 
 https://www.youtube.com/watch?v=zH8nxWt9ojs
@@ -33,6 +34,7 @@ https://forum.godotengine.org/t/how-to-properly-set-project-settings-and-change-
 https://www.reddit.com/r/godot/comments/z6cq2w/how_do_i_change_the_screen_resolution_with_code/
 https://docs.godotengine.org/en/stable/tutorials/rendering/multiple_resolutions.html
 https://www.reddit.com/r/godot/comments/182zstw/what_is_the_correct_way_of_implementing/
+https://www.reddit.com/r/godot/comments/1jq9tn1/switching_resolutions_no_longer_working/
 
 Ändra kamera med kod: 
 https://docs.godotengine.org/en/latest/classes/class_camera2d.html#
@@ -48,11 +50,18 @@ Läsa upplösning ifall ändringar sker:
 https://godotawesome.com/godot-get-window-screen-size/
 https://www.reddit.com/r/godot/comments/nfe2uv/get_current_resolution_in_godot_4/
 https://forum.godotengine.org/t/trying-to-access-the-player-position-in-my-first-game/49192
+https://docs.godotengine.org/en/stable/tutorials/rendering/multiple_resolutions.html
 
 Timer: 
 https://docs.godotengine.org/en/latest/classes/class_timer.html#timer
+https://www.reddit.com/r/godot/comments/gr555s/wait_seconds_in_a_code/
 
-Tweens/Easing: 
+Tweens/Easing/Lerp: 
 https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp
 https://www.reddit.com/r/godot/comments/1f8t0np/cant_get_the_zoom_to_be_a_smooth_ease_inout_any/
+https://www.youtube.com/watch?v=GAKcB8RwTmQ
 
+Main Menu: 
+https://docs.godotengine.org/en/3.0/getting_started/step_by_step/ui_main_menu.html
+https://gamedevartisan.com/tutorials/godot-fundamentals/menus-and-scene-transitions
+https://forum.godotengine.org/t/changing-scenes/43914

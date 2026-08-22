@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://cjhn3x0nkmc3r"]
 
 [ext_resource type="Texture2D" uid="uid://dv0a437jdf8dv" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="1_8ojhl"]
-[ext_resource type="Script" uid="uid://d3ql0cucdhpwm" path="res://scenes/Levels/house_scene.gd" id="1_y5rtp"]
+[ext_resource type="Script" uid="uid://d3ql0cucdhpwm" path="res://Scenes/Levels/house_scene.gd" id="1_y5rtp"]
 [ext_resource type="Texture2D" uid="uid://chp1orqj2l0de" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="2_ut0e4"]
 [ext_resource type="Texture2D" uid="uid://wx7slufvgw7i" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="3_vvn7b"]
 [ext_resource type="Texture2D" uid="uid://cojyroyg3its5" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Objects/Basic Furniture.png" id="4_vvn7b"]
-[ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://scenes/Characters/player_character.tscn" id="5_y5rtp"]
-[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://scenes/UI/ui.tscn" id="7_wqkhm"]
+[ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://Scenes/Characters/player_character.tscn" id="5_y5rtp"]
+[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://Scenes/UI/ui.tscn" id="7_wqkhm"]
+[ext_resource type="Script" uid="uid://u5eg6rs4tt3c" path="res://Scenes/Levels/house_exit.gd" id="8_xtgon"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5rtp"]
 texture = ExtResource("1_8ojhl")
@@ -213,6 +214,9 @@ sources/1 = SubResource("TileSetAtlasSource_wqkhm")
 sources/2 = SubResource("TileSetAtlasSource_44qcc")
 sources/3 = SubResource("TileSetAtlasSource_l6b7n")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0kl6"]
+size = Vector2(12, 10)
+
 [node name="House" type="Node2D" unique_id=207454206]
 position = Vector2(100, 100)
 script = ExtResource("1_y5rtp")
@@ -255,6 +259,13 @@ player = NodePath("../../../../PlayerCharacter")
 
 [node name="MainMenu" parent="UI/Control" parent_id_path=PackedInt32Array(1338327035, 1959933703) index="1" unique_id=718903573]
 visible = false
+
+[node name="BackTrigger" type="Area2D" parent="." unique_id=1453369454]
+script = ExtResource("8_xtgon")
+
+[node name="BackBox" type="CollisionShape2D" parent="BackTrigger" unique_id=697904359]
+position = Vector2(8, 50)
+shape = SubResource("RectangleShape2D_f0kl6")
 
 [editable path="PlayerCharacter"]
 [editable path="UI"]

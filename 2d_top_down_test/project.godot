@@ -12,16 +12,21 @@ config_version=5
 
 config/name="2d top down test"
 run/main_scene="uid://3q10rmv074sx"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneTransition="*uid://badqp8d1y6obv"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [input]

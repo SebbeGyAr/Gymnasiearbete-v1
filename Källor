@@ -56,9 +56,10 @@ Timer:
 https://docs.godotengine.org/en/latest/classes/class_timer.html#timer
 https://www.reddit.com/r/godot/comments/gr555s/wait_seconds_in_a_code/
 
-Tweens/Easing: 
+Tweens/Easing/Lerp: 
 https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp
 https://www.reddit.com/r/godot/comments/1f8t0np/cant_get_the_zoom_to_be_a_smooth_ease_inout_any/
+https://www.youtube.com/watch?v=GAKcB8RwTmQ
 
 Main Menu: 
 https://docs.godotengine.org/en/3.0/getting_started/step_by_step/ui_main_menu.html

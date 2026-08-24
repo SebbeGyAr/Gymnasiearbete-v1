@@ -12,7 +12,7 @@ config_version=5
 
 config/name="2d top down test"
 run/main_scene="uid://3q10rmv074sx"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -25,13 +25,13 @@ GlobalVariables="*uid://q6dgwydjw6ys"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
+window/size/always_on_top=true
 window/size/transparent=true
 window/size/extend_to_title=true
 window/size/maximize_disabled=true
 window/energy_saving/keep_screen_on=false
 window/subwindows/embed_subwindows=false
-window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
+window/stretch/mode="viewport"
 window/per_pixel_transparency/allowed=true
 window/vsync/vsync_mode=0
 

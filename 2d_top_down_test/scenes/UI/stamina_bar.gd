@@ -3,7 +3,6 @@ extends ProgressBar
 var staminaBar = StyleBoxFlat.new()
 
 @export var player: Node
-@onready var mainMenu = %MainMenu
 
 func _process(_delta):
 	value = player.stamina

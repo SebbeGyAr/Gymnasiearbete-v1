@@ -11,7 +11,7 @@ var movementSpeed = MOVEMENT_SPEED_CONST
 var startingDirection = Vector2(0, 1)
 var staminaOnCooldown = float(0)
 var staminaRecoverySpeed = 0.25
-var stamina = float(100)
+var stamina = 100.0
 
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
@@ -20,6 +20,7 @@ var Bullet = preload("res://scenes/Non Character Entities/bullet.tscn")
 
 func _ready():
 	update_animation_parameters(startingDirection)
+	stamina = GlobalVariables.stamina
 
 func shoot():
 	var b = Bullet.instantiate()
@@ -59,6 +60,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("cheatbutton"): 
 		staminaRecoverySpeed *= 2
 	
+	GlobalVariables.stamina = stamina
 	# KOLLAR VÄRDEN I TESTSYFTEN
 	# print("
 	# Stamina: ", stamina, "

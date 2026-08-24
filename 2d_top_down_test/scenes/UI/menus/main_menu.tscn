@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://vifxtjbmrwv4" path="res://Assets/Themes/DefaultTheme.tres" id="1_hvwfg"]
 [ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://scenes/UI/Menus/main_menu.gd" id="2_i77qe"]
+[ext_resource type="AudioStream" uid="uid://byldulsv74nne" path="res://Assets/Sounds/DroningTestSound.mp3" id="3_lc8e3"]
 
 [node name="MainMenu" type="Control" unique_id=718903573]
 layout_mode = 3
@@ -58,24 +59,38 @@ size_flags_vertical = 10
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../QuitGameButton")
 focus_neighbor_top = NodePath("../QuitGameButton")
-focus_neighbor_bottom = NodePath("../QuitGameButton")
-focus_next = NodePath("../QuitGameButton")
+focus_neighbor_right = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
 focus_previous = NodePath("../QuitGameButton")
 theme_override_font_sizes/font_size = 32
 text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=273307926]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Options"
 
 [node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1014486413]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_left = NodePath("../OptionsButton")
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_right = NodePath("../StartGameButton")
 focus_neighbor_bottom = NodePath("../StartGameButton")
 focus_next = NodePath("../StartGameButton")
-focus_previous = NodePath("../StartGameButton")
+focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 32
 text = "Quit Game"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83177547]
+stream = ExtResource("3_lc8e3")
+volume_db = -40.0
+
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

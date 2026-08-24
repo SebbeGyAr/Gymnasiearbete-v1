@@ -286,3 +286,4 @@ drag_left_margin = 0.4
 drag_right_margin = 0.4
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1227171979]
+z_as_relative = false

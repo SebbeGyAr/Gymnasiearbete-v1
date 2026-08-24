@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c4p63lne8syvm"]
+
+[ext_resource type="AudioStream" uid="uid://byldulsv74nne" path="res://Assets/Sounds/DroningTestSound.mp3" id="1_rk3rh"]
+
+[node name="MainMenuMusic" type="AudioStreamPlayer" unique_id=978502829]
+stream = ExtResource("1_rk3rh")
+volume_db = -40.0
+autoplay = true

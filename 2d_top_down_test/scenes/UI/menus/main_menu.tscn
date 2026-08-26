@@ -16,6 +16,7 @@ theme = ExtResource("1_hvwfg")
 script = ExtResource("2_i77qe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1877683441]
+position = Vector2(0, -283)
 scale = Vector2(12.5, 12.5)
 texture = ExtResource("3_acdr8")
 centered = false

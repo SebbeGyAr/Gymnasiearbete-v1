@@ -13,6 +13,7 @@ var staminaOnCooldown = float(0)
 var staminaRecoverySpeed = 0.25
 var stamina = 100.0
 var canReload = true
+var canShoot = true
 var hasRifle = true
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
@@ -27,30 +28,33 @@ func _ready():
 func shoot():
 	if GlobalVariables.bulletsLeft <= 0: 
 		return
+	canShoot = false
 	var b = Bullet.instantiate()
 	get_parent().add_child(b)
 	b.global_position = $Muzzle.global_position
 	var direction = (get_global_mouse_position() - $Muzzle.global_position).normalized()
 	b.rotation = direction.angle()
 	GlobalVariables.bulletsLeft -= 1
+	await get_tree().create_timer(0.75).timeout
+	canShoot = true
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 	
 func reload(): 
 	canReload = false
-
+	canShoot = false
 	while GlobalVariables.bulletsLeft < 5: 
 		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... %s/5" % GlobalVariables.bulletsLeft
 		await get_tree().create_timer(0.75).timeout
 		GlobalVariables.bulletsLeft += 1
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... %s/5" % GlobalVariables.bulletsLeft
 	await get_tree().create_timer(0.75).timeout
-	
+	canShoot = true
 	canReload = true
 	GlobalVariables.bulletsLeft = 5
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 	
 func _physics_process(_delta): 
-	if Input.is_action_just_pressed("shoot") and canReload and hasRifle:
+	if Input.is_action_just_pressed("shoot") and canShoot and hasRifle:
 		shoot()
 	if Input.is_action_just_pressed("reload") and canReload and hasRifle:
 		reload()

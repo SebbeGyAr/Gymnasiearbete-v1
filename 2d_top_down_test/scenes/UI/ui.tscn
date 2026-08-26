@@ -90,6 +90,7 @@ offset_bottom = 44.0
 color = Color(0, 0, 0, 0.49803922)
 
 [node name="BulletCounterLabel" type="Label" parent="GunMagNode" unique_id=1825460761]
+texture_filter = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

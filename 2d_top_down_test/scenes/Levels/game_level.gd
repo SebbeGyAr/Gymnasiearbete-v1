@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var Cow = preload("res://scenes/Non Character Entities/cow.tscn")
 @export var player = Node2D
 @onready var camera = $PlayerCharacter/Camera2D
 
@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"): 
 		get_tree().change_scene_to_file("res://scenes/UI/menus/main_menu.tscn")
 
+		
 	var smoothSpeed = 2.0
 	var targetOffset = Vector2.ZERO
 	var targetDistance = 25

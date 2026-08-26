@@ -874,13 +874,13 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = false
 drag_vertical_enabled = false
 
-[node name="Cow" parent="." unique_id=1729804481 instance=ExtResource("14_msle1")]
-position = Vector2(559, 255)
-
 [node name="UI" parent="." unique_id=1338327035 instance=ExtResource("9_2umtj")]
 
 [node name="StaminaBar" parent="UI/StaminaBarNode" parent_id_path=PackedInt32Array(1338327035, 663732513) index="0" unique_id=1658642045 node_paths=PackedStringArray("player")]
 player = NodePath("../../../PlayerCharacter")
+
+[node name="Cow" parent="." unique_id=952489515 instance=ExtResource("14_msle1")]
+position = Vector2(492, 236)
 
 [connection signal="body_entered" from="HouseEnterTrigger" to="HouseEnterTrigger" method="_on_body_entered"]
 

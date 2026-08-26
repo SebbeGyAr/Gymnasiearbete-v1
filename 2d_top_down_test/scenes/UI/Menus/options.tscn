@@ -71,11 +71,13 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 
 [node name="ResolutionLabel" type="Label" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=13615708]
+texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Resolution"
 
 [node name="ResolutionMenu" type="OptionButton" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=1423790502]
+texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_focus_color = Color(0.2509804, 0.38431373, 0.5921569, 1)
@@ -97,6 +99,7 @@ popup/item_4/text = "128x72"
 popup/item_4/id = 4
 
 [node name="FramerateLabel" type="Label" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=600005676]
+texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Framerate"

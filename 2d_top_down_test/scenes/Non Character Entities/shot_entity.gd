@@ -2,13 +2,12 @@ extends CharacterBody2D
 
 var bulletArea2D = "res://scenes/Non Character Entities/bullet_area_2d.gd"
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
 	select_new_direction()
 	pick_new_state()
 
 func _on_body_entered(body) -> void:
-	if body == bulletArea2D:
-		$Sprite2D.queue_free()
+	queue_free()
 
 
 # COW SPECIFIK KOD

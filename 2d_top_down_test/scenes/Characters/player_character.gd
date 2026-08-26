@@ -36,13 +36,15 @@ func shoot():
 func reload(): 
 	GlobalVariables.bulletsLeft = 0
 	canReload = false
-	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading. "
-	await get_tree().create_timer(1.5).timeout
-	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading.. "
-	await get_tree().create_timer(1.5).timeout
-	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... "
-	await get_tree().create_timer(1.5).timeout
-	
+#	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading. "
+#	await get_tree().create_timer(0.75).timeout
+#	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading.. "
+#	await get_tree().create_timer(0.75).timeout
+#	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... "
+	while GlobalVariables.bulletsLeft < 5: 
+		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading..."
+		
+		await get_tree().create_timer(0.75).timeout
 	canReload = true
 	GlobalVariables.bulletsLeft = 5
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft

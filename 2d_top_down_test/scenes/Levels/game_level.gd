@@ -4,8 +4,6 @@ extends Node2D
 @export var player = Node2D
 @onready var camera = $PlayerCharacter/Camera2D
 
-var i = 0
-
 func _ready() -> void:
 	var spawnName = SceneTransition.nextSpawnPoint
 	if spawnName != "":
@@ -13,10 +11,7 @@ func _ready() -> void:
 		if spawn_node:
 			player.global_position = spawn_node.global_position
 	camera.zoom = Vector2(5, 5)
-#	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-
-	
+	$UI/GunMagNode/BulletCounterLabel.text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 
 
 func _physics_process(delta: float) -> void:
@@ -31,13 +26,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"): 
 		get_tree().change_scene_to_file("res://scenes/UI/menus/main_menu.tscn")
 
-	if Input.is_action_just_pressed("ui_accept"): 
-		if i < 3: i += 1
-		else: i = 0
 	var smoothSpeed = 2.0
 	var targetOffset = Vector2.ZERO
 	var targetDistance = 25
-
 
 
 	if inputDirection.x > 0:
@@ -49,7 +40,6 @@ func _physics_process(delta: float) -> void:
 		targetOffset.y = targetDistance
 	elif inputDirection.y < 0:
 		targetOffset.y = -targetDistance
-
 
 	var t = 1.0 - exp(-smoothSpeed * delta)
 	camera.offset = camera.offset.lerp(targetOffset, t)

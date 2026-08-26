@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://vifxtjbmrwv4" path="res://Assets/Themes/DefaultTheme.tres" id="1_hvwfg"]
 [ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://scenes/UI/Menus/main_menu.gd" id="2_i77qe"]
+[ext_resource type="Texture2D" uid="uid://d1s8xb0763wj4" path="res://Assets/Art/forest_background_pixelated.png" id="3_acdr8"]
 [ext_resource type="AudioStream" uid="uid://byldulsv74nne" path="res://Assets/Sounds/DroningTestSound.mp3" id="3_lc8e3"]
 
 [node name="MainMenu" type="Control" unique_id=718903573]
@@ -14,6 +15,11 @@ grow_vertical = 2
 theme = ExtResource("1_hvwfg")
 script = ExtResource("2_i77qe")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1877683441]
+scale = Vector2(12.5, 12.5)
+texture = ExtResource("3_acdr8")
+centered = false
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1444292377]
 layout_mode = 1
 anchors_preset = 15
@@ -21,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.06666667, 0.08627451, 0.12156863, 1)
+color = Color(0.066, 0.0849, 0.12, 0.49803922)
 metadata/_edit_lock_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1459205660]
@@ -88,7 +94,7 @@ text = "Quit Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83177547]
 stream = ExtResource("3_lc8e3")
-volume_db = -40.0
+volume_db = -50.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dyeh45bbl5vfh"]
 
-[ext_resource type="Script" uid="uid://cricm77uqs7qo" path="res://Scenes/UI/Menus/options.gd" id="1_lr6iv"]
+[ext_resource type="Script" uid="uid://cricm77uqs7qo" path="res://scenes/UI/Menus/options.gd" id="1_lr6iv"]
 [ext_resource type="Texture2D" uid="uid://b06c1gisisoc2" path="res://Assets/Art/RigbyCatPixelated.png" id="2_2kh1a"]
 [ext_resource type="AudioStream" uid="uid://byldulsv74nne" path="res://Assets/Sounds/DroningTestSound.mp3" id="2_cfpel"]
 
@@ -148,7 +148,7 @@ max_value = 40.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=289654118]
 stream = ExtResource("2_cfpel")
-volume_db = -40.0
+volume_db = -50.0
 
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

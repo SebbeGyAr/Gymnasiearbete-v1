@@ -3,6 +3,8 @@ extends Node2D
 
 func _ready() -> void:
 	$PlayerCharacter/Camera2D.zoom = Vector2(5, 5)
+	$UI/GunMagNode/BulletCounterLabel.text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
+
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"): 

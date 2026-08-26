@@ -13,6 +13,7 @@ var staminaOnCooldown = float(0)
 var staminaRecoverySpeed = 0.25
 var stamina = 100.0
 var canReload = true
+var hasRifle = true
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
 
@@ -21,6 +22,7 @@ var Bullet = preload("res://scenes/Non Character Entities/bullet.tscn")
 func _ready():
 	update_animation_parameters(startingDirection)
 	stamina = GlobalVariables.stamina
+
 
 func shoot():
 	if GlobalVariables.bulletsLeft <= 0: 
@@ -34,32 +36,30 @@ func shoot():
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 	
 func reload(): 
-	GlobalVariables.bulletsLeft = 0
 	canReload = false
-#	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading. "
-#	await get_tree().create_timer(0.75).timeout
-#	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading.. "
-#	await get_tree().create_timer(0.75).timeout
-#	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... "
+
 	while GlobalVariables.bulletsLeft < 5: 
-		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading..."
-		
+		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... %s/5" % GlobalVariables.bulletsLeft
 		await get_tree().create_timer(0.75).timeout
+		GlobalVariables.bulletsLeft += 1
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... %s/5" % GlobalVariables.bulletsLeft
+	await get_tree().create_timer(0.75).timeout
+	
 	canReload = true
 	GlobalVariables.bulletsLeft = 5
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
-
+	
 func _physics_process(_delta): 
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and canReload and hasRifle:
 		shoot()
-	if Input.is_action_just_pressed("reload") and canReload:
+	if Input.is_action_just_pressed("reload") and canReload and hasRifle:
 		reload()
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1]
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
-	
+		
 	# UPPDATERA ANIMATIONER RELATERADE TILL RÖRELSE
 	update_animation_parameters(inputDirection)
 	

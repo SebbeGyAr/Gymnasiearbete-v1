@@ -12,7 +12,7 @@ var startingDirection = Vector2(0, 1)
 var staminaOnCooldown = float(0)
 var staminaRecoverySpeed = 0.25
 var stamina = 100.0
-
+var canReload = true
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
 
@@ -23,16 +23,35 @@ func _ready():
 	stamina = GlobalVariables.stamina
 
 func shoot():
+	if GlobalVariables.bulletsLeft <= 0: 
+		return
 	var b = Bullet.instantiate()
 	get_parent().add_child(b)
 	b.global_position = $Muzzle.global_position
 	var direction = (get_global_mouse_position() - $Muzzle.global_position).normalized()
 	b.rotation = direction.angle()
+	GlobalVariables.bulletsLeft -= 1
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
+	
+func reload(): 
+	GlobalVariables.bulletsLeft = 0
+	canReload = false
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading. "
+	await get_tree().create_timer(1.5).timeout
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading.. "
+	await get_tree().create_timer(1.5).timeout
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... "
+	await get_tree().create_timer(1.5).timeout
+	
+	canReload = true
+	GlobalVariables.bulletsLeft = 5
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 
 func _physics_process(_delta): 
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-
+	if Input.is_action_just_pressed("reload") and canReload:
+		reload()
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1]
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 

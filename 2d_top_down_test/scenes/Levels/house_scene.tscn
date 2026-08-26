@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://cjhn3x0nkmc3r"]
 
 [ext_resource type="Texture2D" uid="uid://dv0a437jdf8dv" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="1_8ojhl"]
-[ext_resource type="Script" uid="uid://d3ql0cucdhpwm" path="res://scenes/Levels/house_scene.gd" id="1_y5rtp"]
+[ext_resource type="Script" uid="uid://d3ql0cucdhpwm" path="res://Scenes/Levels/house_scene.gd" id="1_y5rtp"]
 [ext_resource type="Texture2D" uid="uid://chp1orqj2l0de" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="2_ut0e4"]
 [ext_resource type="Texture2D" uid="uid://wx7slufvgw7i" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="3_vvn7b"]
 [ext_resource type="Texture2D" uid="uid://cojyroyg3its5" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Objects/Basic Furniture.png" id="4_vvn7b"]
-[ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://scenes/Characters/player_character.tscn" id="5_y5rtp"]
-[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://scenes/UI/ui.tscn" id="7_wqkhm"]
-[ext_resource type="Script" uid="uid://u5eg6rs4tt3c" path="res://scenes/Levels/house_exit.gd" id="8_xtgon"]
+[ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://Scenes/Characters/player_character.tscn" id="5_y5rtp"]
+[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://Scenes/UI/ui.tscn" id="7_wqkhm"]
+[ext_resource type="Script" uid="uid://u5eg6rs4tt3c" path="res://Scenes/Levels/house_exit.gd" id="8_xtgon"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5rtp"]
 texture = ExtResource("1_8ojhl")

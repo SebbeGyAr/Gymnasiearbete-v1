@@ -1,14 +1,6 @@
 extends Node2D
 
 
-var resolutions =[
-	Vector2(3840,2160),
-	Vector2(2560,1440),
-	Vector2(1920,1080),
-	Vector2(1280,720)
-]
-
-# KANSKE LÖSER SCREEN TEARING, GHOSTING OCH INPUT LAG VID 30 IFALL DET DYKER UPP VID HÖGRE
 @export var player = Node2D
 @onready var camera = $PlayerCharacter/Camera2D
 

@@ -35,9 +35,9 @@ func shoot():
 	var direction = (get_global_mouse_position() - $Muzzle.global_position).normalized()
 	b.rotation = direction.angle()
 	GlobalVariables.bulletsLeft -= 1
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 	await get_tree().create_timer(0.75).timeout
 	canShoot = true
-	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 	
 func reload(): 
 	canReload = false

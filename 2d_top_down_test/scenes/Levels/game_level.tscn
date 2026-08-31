@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ds6qvsnjco1gi"]
 
-[ext_resource type="Script" uid="uid://bowcp6rrgs3ra" path="res://scenes/Levels/game_level.gd" id="1_2umtj"]
-[ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://scenes/Characters/player_character.tscn" id="2_ppu16"]
+[ext_resource type="Script" uid="uid://bowcp6rrgs3ra" path="res://Scenes/Levels/game_level.gd" id="1_2umtj"]
+[ext_resource type="PackedScene" uid="uid://cd0j5v43rg5p4" path="res://Scenes/Characters/player_character.tscn" id="2_ppu16"]
 [ext_resource type="Texture2D" uid="uid://2jkvwxhpnbx" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Hills.png" id="3_p3vto"]
 [ext_resource type="Texture2D" uid="uid://c8j3hard0jlrr" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="4_2uytl"]
 [ext_resource type="Texture2D" uid="uid://dmr5ojbey6srt" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Tilled Dirt.png" id="5_mtha5"]
@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://ceogdbv8yk8i6" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Objects/Wood Bridge.png" id="7_etfvo"]
 [ext_resource type="Texture2D" uid="uid://chp1orqj2l0de" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Roof_Tilset.png" id="8_2uytl"]
 [ext_resource type="Texture2D" uid="uid://c68k0gdpc260u" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="8_fy262"]
-[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://scenes/UI/ui.tscn" id="9_2umtj"]
+[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://Scenes/UI/ui.tscn" id="9_2umtj"]
 [ext_resource type="Texture2D" uid="uid://wx7slufvgw7i" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden_House_Walls_Tilset.png" id="9_mtha5"]
 [ext_resource type="Texture2D" uid="uid://dv0a437jdf8dv" path="res://Assets/Art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="10_msle1"]
-[ext_resource type="Script" uid="uid://wraqyp55rlyd" path="res://scenes/Levels/house_enter.gd" id="13_mtha5"]
-[ext_resource type="PackedScene" uid="uid://n8alfvo8a66m" path="res://scenes/Non Character Entities/cow.tscn" id="14_msle1"]
+[ext_resource type="Script" uid="uid://wraqyp55rlyd" path="res://Scenes/Levels/house_enter.gd" id="13_mtha5"]
+[ext_resource type="PackedScene" uid="uid://n8alfvo8a66m" path="res://Scenes/Non Character Entities/cow.tscn" id="14_msle1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ese5x"]
 texture = ExtResource("3_p3vto")

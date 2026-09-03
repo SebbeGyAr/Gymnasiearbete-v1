@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d13dokvvdwio6"
+path="res://.godot/imported/Ljudmatta läskig 1.wav-9404efd927edf6fae5d878a05858e018.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/Ljudmatta läskig 1.wav"
+dest_files=["res://.godot/imported/Ljudmatta läskig 1.wav-9404efd927edf6fae5d878a05858e018.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

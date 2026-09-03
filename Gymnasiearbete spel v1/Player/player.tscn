@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5mfuue8sa00l"]
+
+[ext_resource type="Script" uid="uid://df7mipo3d8mxg" path="res://Player/playerscript.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://lg3epco284bk" path="res://Assets/Art/Characters/Walking Animation Side tileset.png" id="2_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqe8"]
+size = Vector2(10, 7)
+
+[node name="Player" type="CharacterBody2D" unique_id=1622405903]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1497973915]
+position = Vector2(-1, 12.5)
+shape = SubResource("RectangleShape2D_4jqe8")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1882138924]
+texture = ExtResource("2_i3pqv")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_edit_lock_ = true

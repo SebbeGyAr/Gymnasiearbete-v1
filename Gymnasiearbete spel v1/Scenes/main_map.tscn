@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ckykecnbbwbuo"]
+
+[ext_resource type="Script" uid="uid://df7mipo3d8mxg" path="res://Player/playerscript.gd" id="1_k5tye"]
+[ext_resource type="Texture2D" uid="uid://lg3epco284bk" path="res://Assets/Art/Characters/Walking Animation Side tileset.png" id="2_1vevx"]
+[ext_resource type="PackedScene" uid="uid://bng7i7j1vm4xk" path="res://tilemaps.tscn" id="3_1vevx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqe8"]
+size = Vector2(10, 7)
+
+[node name="Main Map" type="Node2D" unique_id=1871627368]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1622405903]
+position = Vector2(49, 27)
+script = ExtResource("1_k5tye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1497973915]
+position = Vector2(-1, 12.5)
+shape = SubResource("RectangleShape2D_4jqe8")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1882138924]
+texture = ExtResource("2_1vevx")
+hframes = 3
+vframes = 3
+frame = 3
+metadata/_edit_lock_ = true
+
+[node name="Tilemaps" parent="." unique_id=1491713351 instance=ExtResource("3_1vevx")]
+z_index = -1
+metadata/_edit_lock_ = true

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drn1so68gq8bg" path="res://Scenes/main_level.gd" id="1_tvgjd"]
 [ext_resource type="PackedScene" uid="uid://bng7i7j1vm4xk" path="res://tilemaps.tscn" id="3_1vevx"]
 [ext_resource type="PackedScene" uid="uid://c5mfuue8sa00l" path="res://Player/player.tscn" id="3_tvgjd"]
+[ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://UI/Overlay/ui.tscn" id="4_tvgjd"]
 
 [node name="Main Map" type="Node2D" unique_id=1871627368]
 script = ExtResource("1_tvgjd")
@@ -12,6 +13,10 @@ z_index = -1
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1622405903 instance=ExtResource("3_tvgjd")]
+unique_name_in_owner = true
 position = Vector2(155, 104)
 
+[node name="UI" parent="." unique_id=1338327035 instance=ExtResource("4_tvgjd")]
+
 [editable path="Player"]
+[editable path="UI"]

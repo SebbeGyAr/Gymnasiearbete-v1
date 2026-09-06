@@ -6,6 +6,9 @@
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_lc8e3"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ch4um"]
+font_size = 32
+
 [node name="Options" type="Control" unique_id=1921395531]
 layout_mode = 3
 anchors_preset = 15
@@ -144,6 +147,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Master Sound"
+label_settings = SubResource("LabelSettings_ch4um")
 
 [node name="MasterSoundSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=547061851]
 layout_mode = 2

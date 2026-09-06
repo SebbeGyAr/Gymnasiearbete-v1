@@ -5,6 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://d1s8xb0763wj4" path="res://Assets/Art/forest_background_pixelated.png" id="3_acdr8"]
 [ext_resource type="AudioStream" uid="uid://p7lfs50d22ds" path="res://Assets/Audio/Music/TitleMusic1.mp3" id="4_ch4um"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_v78dc"]
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control" unique_id=718903573]
 layout_mode = 3
 anchors_preset = 15
@@ -16,8 +21,8 @@ theme = ExtResource("1_hvwfg")
 script = ExtResource("2_i77qe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1877683441]
-position = Vector2(0, -283)
-scale = Vector2(12.5, 12.5)
+position = Vector2(9.536743e-07, -5.684342e-14)
+scale = Vector2(12.2293, 11.3125)
 texture = ExtResource("3_acdr8")
 centered = false
 
@@ -54,17 +59,18 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 64
 text = "Superduperbestgame"
+label_settings = SubResource("LabelSettings_v78dc")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=905333597]
+texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 10
 
 [node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=982132633]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../QuitGameButton")
 focus_neighbor_top = NodePath("../QuitGameButton")
@@ -82,7 +88,6 @@ text = "Options"
 
 [node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1014486413]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../OptionsButton")
 focus_neighbor_top = NodePath("../OptionsButton")

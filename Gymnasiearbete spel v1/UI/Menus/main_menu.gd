@@ -7,6 +7,7 @@ signal startGame()
 
 func _ready() -> void:
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
+	AudioServer.set_bus_volume_db(0, GlobalVariables.musicSlider)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):

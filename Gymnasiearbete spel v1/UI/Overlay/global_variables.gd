@@ -1,8 +1,10 @@
 extends Node
 
+
+@onready var player = "res://Player/player.tscn"
 var musicProgress = 0.0
 var stamina = 100.0
-var musicSlider = 0
+var musicSlider = 20
 var fullscreen = false
 var resolutionSet = 2
 var framerateSet = 0

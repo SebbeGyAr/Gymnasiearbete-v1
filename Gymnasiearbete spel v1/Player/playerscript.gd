@@ -4,7 +4,7 @@ extends CharacterBody2D
 # GÖR SÅ ATT ENS STAMINARECOVERYSPEED DUBBLERAS FÖR TESTSYFTE
 
 const MOVEMENT_SPEED_CONST = 100
-const SPRINT_SPEED = 1.75
+const SPRINT_SPEED = 1.5
 const STAMINA_COOLDOWN_LENGTH = 100
 
 var movementSpeed = MOVEMENT_SPEED_CONST
@@ -17,18 +17,17 @@ var canShoot = true
 var hasRifle = true
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
-
-#var Bullet = preload("res://scenes/Non Character Entities/bullet.tscn")
+var Bullet = preload("res://Entities/Misc/bullet.tscn")
 
 func _ready():
 	pass
 	update_animation_parameters(startingDirection)
-#	stamina = GlobalVariables.stamina
+	stamina = GlobalVariables.stamina
 
-"""
 func shoot():
 	if GlobalVariables.bulletsLeft <= 0: 
 		return
+	canReload = false
 	canShoot = false
 	var b = Bullet.instantiate()
 	get_parent().add_child(b)
@@ -36,30 +35,39 @@ func shoot():
 	var direction = (get_global_mouse_position() - $Muzzle.global_position).normalized()
 	b.rotation = direction.angle()
 	GlobalVariables.bulletsLeft -= 1
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Cocking.    : %s/5" %GlobalVariables.bulletsLeft
+	await get_tree().create_timer(0.25).timeout
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Cocking..   : %s/5" %GlobalVariables.bulletsLeft
+	await get_tree().create_timer(0.25).timeout
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Cocking...  : %s/5" %GlobalVariables.bulletsLeft
+	await get_tree().create_timer(0.25).timeout
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
-	await get_tree().create_timer(0.75).timeout
+	canReload = true
 	canShoot = true
-"""
-"""
+
 func reload(): 
+	if GlobalVariables.bulletsLeft >= 5:
+		return
 	canReload = false
 	canShoot = false
 	while GlobalVariables.bulletsLeft < 5: 
-		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... %s/5" % GlobalVariables.bulletsLeft
+		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...  %s/5" % GlobalVariables.bulletsLeft
 		await get_tree().create_timer(0.75).timeout
 		GlobalVariables.bulletsLeft += 1
-	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading... %s/5" % GlobalVariables.bulletsLeft
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...  %s/5" % GlobalVariables.bulletsLeft
 	await get_tree().create_timer(0.75).timeout
-	canShoot = true
-	canReload = true
+
 	GlobalVariables.bulletsLeft = 5
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
-"""
+	canReload = true
+	canShoot = true
+	
+
 func _physics_process(_delta): 
-#	if Input.is_action_just_pressed("shoot") and canShoot and hasRifle:
-#		shoot()
-#	if Input.is_action_just_pressed("reload") and canReload and hasRifle:
-#		reload()
+	if Input.is_action_just_pressed("shoot") and canShoot and hasRifle:
+		shoot()
+	if Input.is_action_just_pressed("reload") and canReload and hasRifle:
+		reload()
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1]
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
@@ -72,9 +80,9 @@ func _physics_process(_delta):
 	# SPRINTFUNKTION, KOMMER TROLIGEN FINJUSTERAS MKT
 	staminaOnCooldown = max(staminaOnCooldown - staminaRecoverySpeed, 0)
 
-	var is_sprinting = Input.is_action_pressed("sprint") and stamina > 0 and staminaOnCooldown == 0 and velocity != Vector2.ZERO
+	var isSprinting = Input.is_action_pressed("sprint") and stamina > 0 and staminaOnCooldown == 0 and velocity != Vector2.ZERO
 
-	if is_sprinting:
+	if isSprinting:
 		movementSpeed = MOVEMENT_SPEED_CONST * SPRINT_SPEED
 		stamina -= 1
 	else:
@@ -112,6 +120,9 @@ func update_animation_parameters(moveInput : Vector2):
 func pick_new_state():
 	# BEDÖMER OM KARAKTÄREN GÅR ELR EJ
 	if velocity != Vector2.ZERO:
-		stateMachine.travel("Walk")
+		if Input.is_action_pressed("sprint") and stamina > 0 and staminaOnCooldown == 0 and velocity != Vector2.ZERO:
+			stateMachine.travel("Run")
+		else: 
+			stateMachine.travel("Walk")
 	else: 
 		stateMachine.travel("Idle")

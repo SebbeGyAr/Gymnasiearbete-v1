@@ -10,6 +10,7 @@ var resolutions =[
 
 func _ready() -> void:
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
+	AudioServer.set_bus_volume_db(0, GlobalVariables.musicSlider)
 	$MarginContainer/VBoxContainer/SettingsVBox/MasterSoundSlider.value = GlobalVariables.musicSlider
 	$MarginContainer/VBoxContainer/SettingsVBox/FullscreenButton.button_pressed = GlobalVariables.fullscreen
 	$MarginContainer/VBoxContainer/SettingsVBox/ResolutionMenu.selected = GlobalVariables.resolutionSet

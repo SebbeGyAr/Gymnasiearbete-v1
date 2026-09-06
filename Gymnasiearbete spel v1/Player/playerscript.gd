@@ -15,14 +15,14 @@ var stamina = 100.0
 var canReload = true
 var canShoot = true
 var hasRifle = true
-#@onready var animationTree = $AnimationTree
-#@onready var stateMachine = animationTree.get("parameters/playback")
+@onready var animationTree = $AnimationTree
+@onready var stateMachine = animationTree.get("parameters/playback")
 
 #var Bullet = preload("res://scenes/Non Character Entities/bullet.tscn")
 
 func _ready():
 	pass
-#	update_animation_parameters(startingDirection)
+	update_animation_parameters(startingDirection)
 #	stamina = GlobalVariables.stamina
 
 """
@@ -56,10 +56,10 @@ func reload():
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
 """
 func _physics_process(_delta): 
-	#if Input.is_action_just_pressed("shoot") and canShoot and hasRifle:
-	#	shoot()
-	#if Input.is_action_just_pressed("reload") and canReload and hasRifle:
-	#	reload()
+#	if Input.is_action_just_pressed("shoot") and canShoot and hasRifle:
+#		shoot()
+#	if Input.is_action_just_pressed("reload") and canReload and hasRifle:
+#		reload()
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1]
 	var inputDirection = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
@@ -67,7 +67,7 @@ func _physics_process(_delta):
 	)
 		
 	# UPPDATERA ANIMATIONER RELATERADE TILL RÖRELSE
-#	update_animation_parameters(inputDirection)
+	update_animation_parameters(inputDirection)
 	
 	# SPRINTFUNKTION, KOMMER TROLIGEN FINJUSTERAS MKT
 	staminaOnCooldown = max(staminaOnCooldown - staminaRecoverySpeed, 0)
@@ -100,18 +100,18 @@ func _physics_process(_delta):
 	
 	# VET EJ RIKTIGT VAD DESSA GÖR UTÖVER ATT DE LÅTER KARAKTÄREN RÖRA PÅ SIG
 	move_and_slide()
-#	pick_new_state()
+	pick_new_state()
 	
 
-#func update_animation_parameters(moveInput : Vector2):
+func update_animation_parameters(moveInput : Vector2):
 	# ANIMATIONUPPDATERINGSFUNKTION
-#	if moveInput != Vector2.ZERO:
-#		animationTree.set("parameters/Walk/blend_position", moveInput)
-#		animationTree.set("parameters/Idle/blend_position", moveInput) 
+	if moveInput != Vector2.ZERO:
+		animationTree.set("parameters/Walk/blend_position", moveInput)
+		animationTree.set("parameters/Idle/blend_position", moveInput) 
 
-#func pick_new_state():
+func pick_new_state():
 	# BEDÖMER OM KARAKTÄREN GÅR ELR EJ
-#	if velocity != Vector2.ZERO:
-#		stateMachine.travel("Walk")
-#	else: 
-#		stateMachine.travel("Idle")
+	if velocity != Vector2.ZERO:
+		stateMachine.travel("Walk")
+	else: 
+		stateMachine.travel("Idle")

@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="gymnasiearbete v1"
-run/main_scene="uid://ckykecnbbwbuo"
+run/main_scene="uid://3q10rmv074sx"
 config/features=PackedStringArray("4.7", "Forward Plus")
+
+[autoload]
+
+GlobalVariables="*uid://q6dgwydjw6ys"
+SceneTransition="*uid://badqp8d1y6obv"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 

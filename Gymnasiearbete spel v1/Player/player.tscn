@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c5mfuue8sa00l"]
 
 [ext_resource type="Script" uid="uid://df7mipo3d8mxg" path="res://Player/playerscript.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://lg3epco284bk" path="res://Assets/Art/Characters/Walking Animation Side tileset.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bck2766b8r3k0" path="res://Assets/Art/Characters/New Walking and Idle Animation Right tileset.png" id="2_4ntmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqe8"]
-size = Vector2(10, 7)
+size = Vector2(14, 7.75)
 
 [sub_resource type="Animation" id="Animation_4ntmi"]
 length = 0.001
@@ -15,14 +15,16 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [0]
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_gwnis"]
 resource_name = "idle"
+length = 1.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,15 +32,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [3]
+"values": [10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_k53q1"]
 resource_name = "sprint_right"
-length = 0.6
+length = 0.667
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,15 +49,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.46666667, 0.53333336, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_btcbx"]
 resource_name = "walk_right"
-length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,10 +65,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.5, 0.59999996, 0.7, 0.79999995, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwnis"]
@@ -190,14 +191,16 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1497973915]
-position = Vector2(-1, 12.5)
+position = Vector2(0, 19.125)
 shape = SubResource("RectangleShape2D_4jqe8")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1882138924]
-texture = ExtResource("2_i3pqv")
-hframes = 3
+texture = ExtResource("2_4ntmi")
+hframes = 4
 vframes = 3
+frame = 11
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493621467]
 libraries/ = SubResource("AnimationLibrary_gwnis")
@@ -217,4 +220,4 @@ limit_bottom = 1920
 metadata/_edit_lock_ = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=447959464]
-position = Vector2(19, 0)
+position = Vector2(13, 0)

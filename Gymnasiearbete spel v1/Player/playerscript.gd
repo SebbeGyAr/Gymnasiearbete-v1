@@ -3,7 +3,7 @@ extends CharacterBody2D
 # TILLFÄLLIG FUSKKNAPP: 0
 # GÖR SÅ ATT ENS STAMINARECOVERYSPEED DUBBLERAS FÖR TESTSYFTE
 
-const MOVEMENT_SPEED_CONST = 50
+const MOVEMENT_SPEED_CONST = 40
 const SPRINT_SPEED = 1.5
 const STAMINA_COOLDOWN_LENGTH = 100
 
@@ -51,10 +51,10 @@ func reload():
 	canReload = false
 	canShoot = false
 	while GlobalVariables.bulletsLeft < 5: 
-		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...  %s/5" % GlobalVariables.bulletsLeft
+		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
 		await get_tree().create_timer(0.75).timeout
 		GlobalVariables.bulletsLeft += 1
-	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...  %s/5" % GlobalVariables.bulletsLeft
+	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
 	await get_tree().create_timer(0.75).timeout
 
 	GlobalVariables.bulletsLeft = 5

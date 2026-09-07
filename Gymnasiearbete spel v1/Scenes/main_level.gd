@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	var targetDistance = 25
 	
 	
-
 	if inputDirection.x > 0:
 		targetOffset.x = 2 * targetDistance
 		sprite2D.flip_h = false

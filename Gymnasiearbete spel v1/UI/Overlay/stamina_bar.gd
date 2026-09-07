@@ -15,5 +15,5 @@ func _process(_delta):
 	else: 
 		add_theme_stylebox_override("fill", staminaBar)
 		staminaBar.bg_color = Color("495e85ff")
-		staminaBar.border_color = Color(0.22, 0.283, 0.4, 1.0)
+		staminaBar.shadow_color = Color(0.22, 0.283, 0.4, 1.0)
 	

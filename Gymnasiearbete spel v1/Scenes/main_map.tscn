@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bng7i7j1vm4xk" path="res://tilemaps.tscn" id="3_1vevx"]
 [ext_resource type="PackedScene" uid="uid://c5mfuue8sa00l" path="res://Player/player.tscn" id="3_tvgjd"]
 [ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://UI/Overlay/ui.tscn" id="4_tvgjd"]
+[ext_resource type="PackedScene" uid="uid://bli4s78nld4jk" path="res://Entities/Creatures/test_monster.tscn" id="5_nfd1w"]
 
 [node name="Main Map" type="Node2D" unique_id=1871627368]
 script = ExtResource("1_tvgjd")
@@ -14,9 +15,15 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=1622405903 instance=ExtResource("3_tvgjd")]
 unique_name_in_owner = true
-position = Vector2(155, 104)
+position = Vector2(507, 264)
 
 [node name="UI" parent="." unique_id=1338327035 instance=ExtResource("4_tvgjd")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=385149479]
+color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="TestMonster" parent="." unique_id=1024993463 instance=ExtResource("5_nfd1w")]
+position = Vector2(345, 286)
 
 [editable path="Player"]
 [editable path="UI"]

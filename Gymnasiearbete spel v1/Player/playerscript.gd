@@ -12,9 +12,7 @@ var startingDirection = Vector2(0, 1)
 var staminaOnCooldown = float(0)
 var staminaRecoverySpeed = 0.25
 var stamina = 100.0
-var canReload = true
 var canShoot = true
-var hasRifle = true
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
 var Bullet = preload("res://Entities/Misc/bullet.tscn")
@@ -27,7 +25,6 @@ func _ready():
 func shoot():
 	if GlobalVariables.bulletsLeft <= 0: 
 		return
-	canReload = false
 	canShoot = false
 	var b = Bullet.instantiate()
 	get_parent().add_child(b)
@@ -42,13 +39,11 @@ func shoot():
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Cocking...  : %s/5" %GlobalVariables.bulletsLeft
 	await get_tree().create_timer(0.25).timeout
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
-	canReload = true
 	canShoot = true
 
 func reload(): 
 	if GlobalVariables.bulletsLeft >= 5:
 		return
-	canReload = false
 	canShoot = false
 	while GlobalVariables.bulletsLeft < 5: 
 		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
@@ -56,17 +51,15 @@ func reload():
 		GlobalVariables.bulletsLeft += 1
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
 	await get_tree().create_timer(0.75).timeout
-
 	GlobalVariables.bulletsLeft = 5
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Bullets Left: %s/5" %GlobalVariables.bulletsLeft
-	canReload = true
 	canShoot = true
 	
 
 func _physics_process(_delta): 
-	if Input.is_action_just_pressed("shoot") and canShoot and hasRifle:
+	if Input.is_action_just_pressed("shoot") and canShoot and GlobalVariables.hasRifle:
 		shoot()
-	if Input.is_action_just_pressed("reload") and canReload and hasRifle:
+	if Input.is_action_just_pressed("reload") and canShoot and GlobalVariables.hasRifle:
 		reload()
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1]
 	var inputDirection = Vector2(

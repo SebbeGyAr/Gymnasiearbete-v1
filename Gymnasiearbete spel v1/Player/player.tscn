@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://df7mipo3d8mxg" path="res://Player/playerscript.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bck2766b8r3k0" path="res://Assets/Art/Characters/New Walking and Idle Animation Right tileset.png" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://bak6qrdrrk1ea" path="res://UI/Overlay/flashlight.tscn" id="3_gwnis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqe8"]
 size = Vector2(14, 7.75)
@@ -93,17 +94,21 @@ animation = &"idle"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_00tjw"]
 auto_triangles = false
-blend_point_0/node = SubResource("AnimationNodeAnimation_k53q1")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_fhl08")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_vtle1")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_od3ui")
-blend_point_3/pos = Vector2(-1, 0)
 triangles = PackedInt32Array()
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_k53q1")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_fhl08")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_vtle1")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_od3ui")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00tjw"]
 animation = &"sprint_right"
@@ -118,17 +123,21 @@ animation = &"sprint_right"
 animation = &"sprint_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pisgm"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_00tjw")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_gu6f8")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_dkpta")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_lfmf2")
-blend_point_3/pos = Vector2(-1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_00tjw")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_gu6f8")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_dkpta")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_lfmf2")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3vf3"]
 animation = &"walk_right"
@@ -143,17 +152,21 @@ animation = &"walk_right"
 animation = &"walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gu6f8"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_x3vf3")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_apopc")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_5htga")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_p5o4e")
-blend_point_3/pos = Vector2(-1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_x3vf3")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_apopc")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_5htga")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_p5o4e")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dkpta"]
 advance_mode = 2
@@ -220,4 +233,7 @@ limit_bottom = 1920
 metadata/_edit_lock_ = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=447959464]
+position = Vector2(13, 0)
+
+[node name="FlashlightNode" parent="." unique_id=398557012 instance=ExtResource("3_gwnis")]
 position = Vector2(13, 0)

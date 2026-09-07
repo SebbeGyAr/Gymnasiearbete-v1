@@ -10,8 +10,8 @@ var resolutions =[
 
 func _ready() -> void:
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
-	AudioServer.set_bus_volume_db(0, GlobalVariables.musicSlider)
-	$MarginContainer/VBoxContainer/SettingsVBox/MasterSoundSlider.value = GlobalVariables.musicSlider
+	AudioServer.set_bus_volume_db(0, GlobalVariables.soundSlider)
+	$MarginContainer/VBoxContainer/SettingsVBox/MasterSoundSlider.value = GlobalVariables.soundSlider
 	$MarginContainer/VBoxContainer/SettingsVBox/FullscreenButton.button_pressed = GlobalVariables.fullscreen
 	$MarginContainer/VBoxContainer/SettingsVBox/ResolutionMenu.selected = GlobalVariables.resolutionSet
 	$MarginContainer/VBoxContainer/SettingsVBox/FramerateLimitMenu.selected = GlobalVariables.framerateSet
@@ -29,7 +29,7 @@ func _on_master_sound_slider_value_changed(value):
 		AudioServer.set_bus_mute(0, true)
 	else: 
 		AudioServer.set_bus_mute(0, false)
-	GlobalVariables.musicSlider = value
+	GlobalVariables.soundSlider = value
 
 func _on_back_button_pressed() -> void: 
 	GlobalVariables.musicProgress = $AudioStreamPlayer.get_playback_position()

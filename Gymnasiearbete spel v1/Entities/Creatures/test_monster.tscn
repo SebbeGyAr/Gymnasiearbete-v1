@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bli4s78nld4jk"]
+
+[ext_resource type="Script" uid="uid://dvliku02vhpkt" path="res://Entities/Creatures/test_monster.gd" id="1_5hd5l"]
+[ext_resource type="Texture2D" uid="uid://udshq2b4phee" path="res://Assets/Art/Entities/the_ritual_monster_tileset.png" id="1_nm7x8"]
+[ext_resource type="AudioStream" uid="uid://p7lfs50d22ds" path="res://Assets/Audio/Music/TitleMusic1.mp3" id="3_0vlxn"]
+
+[sub_resource type="Animation" id="Animation_800so"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bb12q"]
+resource_name = "idle"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_td46n"]
+_data = {
+&"RESET": SubResource("Animation_800so"),
+&"idle": SubResource("Animation_bb12q")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4jqe8"]
+animation = &"idle"
+
+[node name="TestMonster" type="Node2D" unique_id=1024993463]
+script = ExtResource("1_5hd5l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=999148010]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_nm7x8")
+vframes = 2
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=203366311]
+libraries/ = SubResource("AnimationLibrary_td46n")
+autoplay = &"idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1114070809]
+tree_root = SubResource("AnimationNodeAnimation_4jqe8")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2091452402]
+stream = ExtResource("3_0vlxn")
+volume_db = 24.0
+pitch_scale = 0.13

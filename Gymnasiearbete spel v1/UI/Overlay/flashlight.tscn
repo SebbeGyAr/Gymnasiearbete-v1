@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bak6qrdrrk1ea"]
+
+[ext_resource type="Script" uid="uid://bqrc681dedpjv" path="res://UI/Overlay/flashlight.gd" id="2_h3kvc"]
+[ext_resource type="Texture2D" uid="uid://de4qnvd25utwk" path="res://Assets/Art/Entities/flashlight_light.jpg" id="2_wm4p2"]
+
+[node name="FlashlightNode" type="Node2D" unique_id=398557012]
+script = ExtResource("2_h3kvc")
+
+[node name="Flashlight" type="PointLight2D" parent="." unique_id=1834439783]
+z_index = 5
+position = Vector2(128, 0)
+rotation = 4.712389
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wm4p2")
+height = 1024.0

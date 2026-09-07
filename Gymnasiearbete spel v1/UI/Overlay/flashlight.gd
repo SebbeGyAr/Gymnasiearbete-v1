@@ -19,11 +19,10 @@ func _process(delta: float) -> void:
 	else:
 		flashlight.enabled = true
 	
-	if GlobalVariables.flashlightBattery < 95: 
-		flashlight.enabled = false
-		await get_tree().create_timer(randi_range(1, 10)/10).timeout
-		flashlight.enabled = true
-		await get_tree().create_timer(randi_range(1, 10)/10).timeout
+	if GlobalVariables.flashlightBattery < 10 and GlobalVariables.flashlightEnabled: 
+		flashlight.energy = 0
+		await get_tree().create_timer(randf()).timeout
+		flashlight.energy = 1
 
-	if flashlight.enabled and GlobalVariables.flashlightBattery > 0: 
+	if GlobalVariables.flashlightEnabled and GlobalVariables.flashlightBattery > 0: 
 		GlobalVariables.flashlightBattery -= BATTERY_DRAIN_SPEED

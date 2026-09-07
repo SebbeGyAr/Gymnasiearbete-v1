@@ -233,7 +233,8 @@ limit_bottom = 1920
 metadata/_edit_lock_ = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=447959464]
-position = Vector2(13, 0)
+position = Vector2(13, -9)
 
 [node name="FlashlightNode" parent="." unique_id=398557012 instance=ExtResource("3_gwnis")]
 position = Vector2(13, 0)
+metadata/_edit_lock_ = true

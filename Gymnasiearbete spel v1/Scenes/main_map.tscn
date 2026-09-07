@@ -20,7 +20,7 @@ position = Vector2(507, 264)
 [node name="UI" parent="." unique_id=1338327035 instance=ExtResource("4_tvgjd")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=385149479]
-color = Color(0.05, 0.05, 0.05, 1)
+color = Color(0.06, 0.06, 0.06, 1)
 
 [node name="TestMonster" parent="." unique_id=1024993463 instance=ExtResource("5_nfd1w")]
 position = Vector2(345, 286)

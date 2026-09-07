@@ -15,6 +15,7 @@ func _process(_delta):
 		value = 100
 		textLabel.text = "EMPTY BATTERY"
 	else: 
+		textLabel.text = "BATTERY: %d%%" % GlobalVariables.flashlightBattery
 		add_theme_stylebox_override("fill", flashlightBatteryBar)
 		flashlightBatteryBar.bg_color = Color("695e31ff")
 		flashlightBatteryBar.border_color = Color("423b1fff")

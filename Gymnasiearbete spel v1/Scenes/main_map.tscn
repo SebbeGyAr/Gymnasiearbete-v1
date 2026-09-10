@@ -17,10 +17,13 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 position = Vector2(507, 264)
 
+[node name="Sprite2D" parent="Player" index="1" unique_id=1882138924]
+frame = 10
+
 [node name="UI" parent="." unique_id=1338327035 instance=ExtResource("4_tvgjd")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=385149479]
-color = Color(0.06, 0.06, 0.06, 1)
+color = Color(0.08, 0.08, 0.08, 1)
 
 [node name="TestMonster" parent="." unique_id=1024993463 instance=ExtResource("5_nfd1w")]
 position = Vector2(345, 286)

@@ -7,9 +7,10 @@
 script = ExtResource("2_h3kvc")
 
 [node name="Flashlight" type="PointLight2D" parent="." unique_id=1834439783]
-z_index = 5
-position = Vector2(128, 0)
+show_behind_parent = true
+z_as_relative = false
+position = Vector2(120, 0)
 rotation = 4.712389
 scale = Vector2(0.5, 0.5)
+color = Color(1, 1, 0.52156866, 1)
 texture = ExtResource("2_wm4p2")
-height = 1024.0

@@ -83,18 +83,36 @@ text = "Start Game"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=273307926]
 layout_mode = 2
+focus_neighbor_left = NodePath("../StartGameButton")
+focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_right = NodePath("../InputMapButton")
+focus_neighbor_bottom = NodePath("../InputMapButton")
+focus_next = NodePath("../InputMapButton")
+focus_previous = NodePath("../StartGameButton")
 theme_override_font_sizes/font_size = 32
 text = "Options"
 
-[node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1014486413]
+[node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=2094176727]
 layout_mode = 2
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../OptionsButton")
 focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_right = NodePath("../QuitGameButton")
+focus_neighbor_bottom = NodePath("../QuitGameButton")
+focus_next = NodePath("../QuitGameButton")
+focus_previous = NodePath("../OptionsButton")
+theme_override_font_sizes/font_size = 32
+text = "Input Map"
+
+[node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1014486413]
+layout_mode = 2
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../InputMapButton")
+focus_neighbor_top = NodePath("../InputMapButton")
 focus_neighbor_right = NodePath("../StartGameButton")
 focus_neighbor_bottom = NodePath("../StartGameButton")
 focus_next = NodePath("../StartGameButton")
-focus_previous = NodePath("../OptionsButton")
+focus_previous = NodePath("../InputMapButton")
 theme_override_font_sizes/font_size = 32
 text = "Quit Game"
 
@@ -105,4 +123,5 @@ volume_db = -50.0
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/InputMapButton" to="." method="_on_input_map_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

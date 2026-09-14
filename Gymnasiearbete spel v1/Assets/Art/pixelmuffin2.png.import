@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lg3epco284bk"
-path="res://.godot/imported/Walking Animation Side tileset.png-2a845ed6ecee839cbacae1f903d23cbe.ctex"
+uid="uid://p7r0k3w7ulau"
+path="res://.godot/imported/pixelmuffin2.png-a4c354a09ec3057e66f13be54f9d8f2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Characters/Walking Animation Side tileset.png"
-dest_files=["res://.godot/imported/Walking Animation Side tileset.png-2a845ed6ecee839cbacae1f903d23cbe.ctex"]
+source_file="res://Assets/Art/pixelmuffin2.png"
+dest_files=["res://.godot/imported/pixelmuffin2.png-a4c354a09ec3057e66f13be54f9d8f2b.ctex"]
 
 [params]
 

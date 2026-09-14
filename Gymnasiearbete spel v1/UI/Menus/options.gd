@@ -9,8 +9,11 @@ var resolutions =[
 ]
 
 func _ready() -> void:
+	# FORTSÄTTER DÄR MUSIKEN VAR
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
 	AudioServer.set_bus_volume_db(0, GlobalVariables.soundSlider)
+	
+	# SÄTTER VAD DET STÅR I ALLA OPTIONSKNAPPAR
 	$MarginContainer/VBoxContainer/SettingsVBox/MasterSoundSlider.value = GlobalVariables.soundSlider
 	$MarginContainer/VBoxContainer/SettingsVBox/FullscreenButton.button_pressed = GlobalVariables.fullscreen
 	$MarginContainer/VBoxContainer/SettingsVBox/ResolutionMenu.selected = GlobalVariables.resolutionSet
@@ -19,24 +22,33 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	# SPARAR VAR MUSIKEN ÄR OCH BYTER SCEN OM SPELAREN TRYCKER PÅ ESCAPE
+	if Input.is_action_just_released("ui_cancel"):
+		GlobalVariables.musicProgress = $AudioStreamPlayer.get_playback_position()
 		get_tree().change_scene_to_file("res://UI/Menus/main_menu.tscn")
-#	print(PopupMenu.)
+
 
 func _on_master_sound_slider_value_changed(value):
+	# ÄNDRAR MASTER SOUND TILL DET SOM SLIDERN ÄNDRAS TILL
 	AudioServer.set_bus_volume_db(0, value)
+	
+	# OM SLIDERN FLYTTAS LÄNGST TILL VÄNSTER MUTEAS LJUDET
 	if value == 0: 
 		AudioServer.set_bus_mute(0, true)
 	else: 
 		AudioServer.set_bus_mute(0, false)
+	
+	# UPPDATERAR DEN GLOBALA soundSlider VARIABELN
 	GlobalVariables.soundSlider = value
 
 func _on_back_button_pressed() -> void: 
+	# SPARAR VAR MUSIKEN ÄR OCH BYTER TILL MAIN MENU SCENEN OM BACK KNAPPEN TRYCKS NED
 	GlobalVariables.musicProgress = $AudioStreamPlayer.get_playback_position()
 	get_tree().change_scene_to_file("res://UI/Menus/main_menu.tscn")
 
 
 func _on_resolution_menu_item_selected(index: int) -> void:
+	# MATCHAR VILKEN MENU ITEM ÄR VALD MED MOTSVARANDE VEKTOR I resolutions LISTAN
 	match index: 
 		0: 
 			GlobalVariables.resolutionSet = 0
@@ -56,6 +68,7 @@ func _on_resolution_menu_item_selected(index: int) -> void:
 
 
 func _on_framerate_limit_menu_item_selected(index: int) -> void:
+	# HAR INGEN LISTA HÄR MEN MATCHAR DEN MENU ITEM SOM ÄR VALD TILL MOTSVARANDE FRAMERATE
 	match index: 
 		0: 
 			GlobalVariables.framerateSet = 0
@@ -84,10 +97,12 @@ func _on_framerate_limit_menu_item_selected(index: int) -> void:
 
 
 func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
+	# TOGGLAR FULLSCREEN OM FULLSCREEN-KNAPPEN TRYCKS PÅ OCH DISABLEAR RESOLUTIONSMENYN OM FULLSCREEN ÄR PÅ
 	if toggled_on: 
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		$MarginContainer/VBoxContainer/SettingsVBox/ResolutionMenu.disabled = true
 		GlobalVariables.fullscreen = true
+
 	else: 
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		$MarginContainer/VBoxContainer/SettingsVBox/ResolutionMenu.disabled = false
@@ -95,6 +110,7 @@ func _on_fullscreen_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_v_sync_button_toggled(toggled_on: bool) -> void:
+	# TOGGLAR VSYNC OM VSYNC-KNAPPEN TRYCKS PÅ
 	if toggled_on:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		GlobalVariables.vsync = true

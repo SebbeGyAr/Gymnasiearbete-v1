@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://df7mipo3d8mxg" path="res://Player/playerscript.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bck2766b8r3k0" path="res://Assets/Art/Characters/New Walking and Idle Animation Right tileset.png" id="2_4ntmi"]
 [ext_resource type="PackedScene" uid="uid://bak6qrdrrk1ea" path="res://UI/Overlay/flashlight.tscn" id="3_gwnis"]
+[ext_resource type="Texture2D" uid="uid://dqs4igtxst7tn" path="res://Assets/Art/Ficklampa.png" id="4_gwnis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqe8"]
 size = Vector2(14, 7.75)
@@ -38,6 +39,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [10, 11]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot/FlashlightSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.0020932942, 0.0020220075),
+"update": 0,
+"values": [Vector2(2.5, 2), Vector2(2.5, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_k53q1"]
 resource_name = "sprint_right"
@@ -55,6 +68,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot/FlashlightSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 0.13333333, 0.20000002, 0.26666665, 0.33333334, 0.4, 0.46666667, 0.5333333, 0.6, 0.6666667),
+"transitions": PackedFloat32Array(0.0020219847, 0.0020219928, 0.0020932928, 0.002022014, 0.0020932916, 0.0020933426, 0.0020933012, 0.0020932846, 0.0020932928, 0.0020220235),
+"update": 0,
+"values": [Vector2(2.5, 1), Vector2(4.5, 1), Vector2(7.5, 0), Vector2(4.5, 1), Vector2(2.5, 1), Vector2(0.5, 1), Vector2(-1.5, 2), Vector2(-4.5, 2), Vector2(-2.5, 1), Vector2(0.5, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_btcbx"]
 resource_name = "walk_right"
@@ -71,6 +96,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlashlightPivot/FlashlightSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.19999999, 0.29999998, 0.4, 0.49999997, 0.6, 0.70000005, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(0.0020219847, 0.0020219928, 0.0020932928, 0.002022014, 0.0020932916, 0.0020933426, 0.0020933012, 0.0020932846, 0.0020932928, 0.0020220235),
+"update": 0,
+"values": [Vector2(2.5, 1), Vector2(4.5, 1), Vector2(7.5, 0), Vector2(4.5, 1), Vector2(2.5, 1), Vector2(0.5, 1), Vector2(-1.5, 2), Vector2(-4.5, 2), Vector2(-2.5, 1), Vector2(0.5, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gwnis"]
 _data = {
@@ -79,6 +116,9 @@ _data = {
 &"sprint_right": SubResource("Animation_k53q1"),
 &"walk_right": SubResource("Animation_btcbx")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwnis"]
+animation = &"idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k53q1"]
 animation = &"idle"
@@ -89,22 +129,24 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vtle1"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_od3ui"]
-animation = &"idle"
-
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_00tjw"]
 auto_triangles = false
-blend_point_0/node = SubResource("AnimationNodeAnimation_k53q1")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_fhl08")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_vtle1")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_od3ui")
-blend_point_3/pos = Vector2(-1, 0)
-triangles = PackedInt32Array()
+triangles = PackedInt32Array(0, 1, 3, 1, 2, 3)
+min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_gwnis")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_k53q1")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"idle 2"
+blend_point_2/node = SubResource("AnimationNodeAnimation_fhl08")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_2/name = &"idle 3"
+blend_point_3/node = SubResource("AnimationNodeAnimation_vtle1")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_3/name = &"idle 4"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_00tjw"]
 animation = &"sprint_right"
@@ -119,17 +161,21 @@ animation = &"sprint_right"
 animation = &"sprint_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_pisgm"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_00tjw")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_gu6f8")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_dkpta")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_lfmf2")
-blend_point_3/pos = Vector2(-1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_00tjw")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_gu6f8")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_dkpta")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_lfmf2")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3vf3"]
 animation = &"walk_right"
@@ -144,17 +190,23 @@ animation = &"walk_right"
 animation = &"walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gu6f8"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_x3vf3")
-blend_point_0/pos = Vector2(0, 1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_apopc")
-blend_point_1/pos = Vector2(1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_5htga")
-blend_point_2/pos = Vector2(0, -1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_p5o4e")
-blend_point_3/pos = Vector2(-1, 0)
+auto_triangles = false
+triangles = PackedInt32Array(0, 1, 3, 1, 2, 3)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
+blend_point_0/node = SubResource("AnimationNodeAnimation_x3vf3")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("AnimationNodeAnimation_apopc")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("AnimationNodeAnimation_5htga")
+blend_point_2/pos = Vector2(0, -1.1)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("AnimationNodeAnimation_p5o4e")
+blend_point_3/pos = Vector2(-1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dkpta"]
 advance_mode = 2
@@ -200,7 +252,6 @@ metadata/_edit_lock_ = true
 texture = ExtResource("2_4ntmi")
 hframes = 4
 vframes = 3
-frame = 11
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493621467]
@@ -222,7 +273,17 @@ metadata/_edit_lock_ = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=447959464]
 position = Vector2(13, -9)
+metadata/_edit_lock_ = true
 
 [node name="FlashlightNode" parent="." unique_id=398557012 instance=ExtResource("3_gwnis")]
 position = Vector2(13, 0)
+metadata/_edit_lock_ = true
+
+[node name="FlashlightPivot" type="Node2D" parent="." unique_id=1486693460]
+metadata/_edit_lock_ = true
+
+[node name="FlashlightSprite" type="Sprite2D" parent="FlashlightPivot" unique_id=2090114102]
+position = Vector2(0.5, 1)
+texture = ExtResource("4_gwnis")
+vframes = 2
 metadata/_edit_lock_ = true

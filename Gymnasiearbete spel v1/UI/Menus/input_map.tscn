@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cskbobhjggtqg"]
+
+[ext_resource type="Script" uid="uid://dx5orrguydy3m" path="res://UI/Menus/input_map.gd" id="1_8jqby"]
+[ext_resource type="AudioStream" uid="uid://p7lfs50d22ds" path="res://Assets/Audio/Music/TitleMusic1.mp3" id="2_13nko"]
+[ext_resource type="Texture2D" uid="uid://brqqw2pcmufy6" path="res://Assets/Art/pixelfluff.png" id="2_flx55"]
+[ext_resource type="FontFile" uid="uid://cjk856yop7636" path="res://Assets/Fonts/HomeVideo-BLG6G.ttf" id="4_g4lve"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m8vs4"]
+font = ExtResource("4_g4lve")
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4jqe8"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InputMap" type="Control" unique_id=1525289311]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8jqby")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=53040231]
+z_index = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.08, 0.08, 0.08, 0.47058824)
+metadata/_edit_lock_ = true
+
+[node name="Fluff" type="Sprite2D" parent="." unique_id=1227975872]
+position = Vector2(960.00006, 540)
+scale = Vector2(12.8, 12.857143)
+texture = ExtResource("2_flx55")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1598165570]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=609491534]
+layout_mode = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=682319381]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_focus_color = Color(0.2509804, 0.38431373, 0.5921569, 1)
+theme_override_colors/font_pressed_color = Color(0.20784314, 0.26666668, 0.38039216, 1)
+theme_override_colors/font_hover_color = Color(0.72156864, 0.83137256, 1, 1)
+theme_override_fonts/font = ExtResource("4_g4lve")
+theme_override_font_sizes/font_size = 32
+text = " ← Back "
+alignment = 0
+metadata/_edit_lock_ = true
+
+[node name="InputMapLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1099718042]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "Input Map"
+label_settings = SubResource("LabelSettings_m8vs4")
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="InputMappings" type="Label" parent="MarginContainer/VBoxContainer" unique_id=542063406]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_g4lve")
+theme_override_font_sizes/font_size = 32
+text = "Movement           - WASD or arrow keys
+
+Sprint             - Left shift
+
+Toggle Flashlight  - Right Click
+
+Fire gun           - Left Click
+
+Reload             - R
+
+Cheat button (temp)- 0 (zero)
+
+Point flashlight   - mouse"
+label_settings = SubResource("LabelSettings_4jqe8")
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=832338240]
+stream = ExtResource("2_13nko")
+volume_db = -50.0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

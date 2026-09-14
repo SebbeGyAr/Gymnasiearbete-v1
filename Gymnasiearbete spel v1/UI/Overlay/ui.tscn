@@ -4,17 +4,17 @@
 [ext_resource type="FontFile" uid="uid://cmx17cdrw4mw0" path="res://Assets/Fonts/monogram-extended.ttf" id="2_kx6rt"]
 [ext_resource type="Script" uid="uid://bcug4hoq46qhy" path="res://UI/Overlay/flashlight_battery_bar.gd" id="3_17sd4"]
 [ext_resource type="AudioStream" uid="uid://d13dokvvdwio6" path="res://Assets/Audio/Music/Ljudmatta läskig 1.wav" id="3_kx6rt"]
+[ext_resource type="FontFile" uid="uid://do1w6iejky5sd" path="res://Assets/Fonts/monogram.ttf" id="4_j81ll"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41gti"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f54a5"]
-bg_color = Color(0.28599998, 0.36789998, 0.52, 1)
+bg_color = Color(0.28627452, 0.36862746, 0.52156866, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.1925, 0.247625, 0.35, 1)
-border_blend = true
+border_color = Color(0.28627452, 0.36862746, 0.52156866, 1)
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_detail = 12
@@ -25,6 +25,12 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_detail = 16
 
+[sub_resource type="LabelSettings" id="LabelSettings_7ok42"]
+font = ExtResource("4_j81ll")
+font_size = 48
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17sd4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j81ll"]
@@ -33,11 +39,23 @@ border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.22, 0.19668001, 0.10340001, 1)
+border_color = Color(0.4117647, 0.36862746, 0.19215687, 1)
 border_blend = true
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_detail = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_4jqe8"]
+font = ExtResource("4_j81ll")
+font_size = 48
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bd8lb"]
+font = ExtResource("4_j81ll")
+font_size = 48
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer" unique_id=1338327035]
 
@@ -73,23 +91,15 @@ offset_bottom = 50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yb1mt")
 metadata/_edit_lock_ = true
 
-[node name="STAMINAtextlabel" type="RichTextLabel" parent="StaminaBarNode" unique_id=290549244]
-z_index = 2
+[node name="STAMINATextLabel" type="Label" parent="StaminaBarNode" unique_id=1338970503]
+z_index = 1
 layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 334.0
-offset_bottom = 49.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_fonts/normal_font = ExtResource("2_kx6rt")
-theme_override_font_sizes/normal_font_size = 64
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
+offset_right = 335.0
+offset_bottom = 50.0
 text = "STAMINA"
+label_settings = SubResource("LabelSettings_7ok42")
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="FlashlightBatteryBarNode" type="Control" parent="." unique_id=1552923228]
@@ -125,23 +135,15 @@ offset_bottom = 50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yb1mt")
 metadata/_edit_lock_ = true
 
-[node name="BATTERYtextlabel" type="RichTextLabel" parent="FlashlightBatteryBarNode" unique_id=1019680485]
-z_index = 2
+[node name="BATTERYTextLabel" type="Label" parent="FlashlightBatteryBarNode" unique_id=168869016]
+z_index = 1
 layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 334.0
-offset_bottom = 49.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_fonts/normal_font = ExtResource("2_kx6rt")
-theme_override_font_sizes/normal_font_size = 64
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
+offset_right = 335.0
+offset_bottom = 50.0
 text = "BATTERY"
+label_settings = SubResource("LabelSettings_4jqe8")
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="GunMagNode" type="Control" parent="." unique_id=1709640152]
@@ -155,7 +157,7 @@ metadata/_edit_lock_ = true
 [node name="BackgroundRect" type="ColorRect" parent="GunMagNode" unique_id=1993939207]
 layout_mode = 1
 offset_top = 6.0
-offset_right = 330.0
+offset_right = 335.0
 offset_bottom = 50.0
 color = Color(0, 0, 0, 0.49803922)
 metadata/_edit_lock_ = true
@@ -173,6 +175,7 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_kx6rt")
 theme_override_font_sizes/font_size = 48
 text = "Bullets Left: 5/5"
+label_settings = SubResource("LabelSettings_bd8lb")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

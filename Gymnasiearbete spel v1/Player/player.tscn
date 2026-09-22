@@ -252,6 +252,7 @@ metadata/_edit_lock_ = true
 texture = ExtResource("2_4ntmi")
 hframes = 4
 vframes = 3
+frame = 11
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493621467]
@@ -283,7 +284,9 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="FlashlightSprite" type="Sprite2D" parent="FlashlightPivot" unique_id=2090114102]
-position = Vector2(0.5, 1)
+position = Vector2(2.5, 2)
 texture = ExtResource("4_gwnis")
 vframes = 2
 metadata/_edit_lock_ = true
+
+[editable path="FlashlightNode"]

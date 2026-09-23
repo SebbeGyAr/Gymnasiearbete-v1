@@ -55,13 +55,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"): 
 		get_tree().change_scene_to_file("res://UI/Menus/main_menu.tscn")
 	
-	# FLYTTAR FLASHLIGHT-BEAMEN MOT VÄNSTER ELLER HÖGER BASERAT PÅ VILKET HÅLL SOM TRYCKS INNE, ALTERNATIVT MOT MITTEN
-	if Input.get_action_strength("down") - Input.get_action_strength("up") > 0:
+	# FLYTTAR FLASHLIGHT-BEAMEN UPP ELLER NER, ALTERNATIVT MOT MITTEN, BORTKOMMENTERAT TILLFÄLLIGT I TESTSYFTEN
+	"""	if Input.get_action_strength("down") - Input.get_action_strength("up") > 0:
 		$Player/FlashlightNode.position.y = lerp($Player/FlashlightNode.position.y, 23.0, t * 2)
 	elif Input.get_action_strength("down") - Input.get_action_strength("up") < 0:
 		$Player/FlashlightNode.position.y = lerp($Player/FlashlightNode.position.y, -23.0, t * 2)
 	else: $Player/FlashlightNode.position.y = lerp($Player/FlashlightNode.position.y, 0.0, t * 2)
-
+	"""
 	# GÖR SÅ ATT DET SER UT SOM ATT SPELAREN KOMMER IKAPP MED KAMERAN NÄR DEN SPRINGER, FÖR ATT GE EN ILLUSION AV HASTIGHET
 	if Input.is_action_pressed("sprint") and player.stamina > 0 and player.staminaOnCooldown == 0 and player.velocity != Vector2.ZERO: 
 		targetDistance -= 10

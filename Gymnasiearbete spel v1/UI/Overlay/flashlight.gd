@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	# ANVÄNDER LERP FÖR ATT RÖRA FICKLAMPAN DIT MUSPEKAREN VISAR FAST MED EASE IN OUT EXPONENTIAL (TROR DET BLIR EASE IN OUT EXP)
 	var t = 1.0 - exp(-SMOOTH_SPEED * delta)
 	var direction = (get_global_mouse_position() - global_position)
+#	var direction = Vector2
 	rotation = lerp_angle(rotation, direction.angle(), t)
 	
 	# OM SPELAREN INTE HAR FICKLAMPAN ELLER HAR INTE IGÅNG FICKLAMPAN ELLER INTE HAR NÅGOT BATTERI KVAR, STÄNG LJUSET, ANNARS TÄND LJUSET

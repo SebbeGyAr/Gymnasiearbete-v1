@@ -11,19 +11,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# STÄNGER SPELET EFTER 0,4 SEKUNDER OM ESCAPE TRYCKS NED
 	if Input.is_action_just_pressed("ui_cancel"):
-		$MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton.text = "Quitting Game"
-		await get_tree().create_timer(0.1).timeout
-		$MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton.text = "Quitting Game."
-		await get_tree().create_timer(0.1).timeout
-		$MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton.text = "Quitting Game.."
-		await get_tree().create_timer(0.1).timeout
-		$MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton.text = "Quitting Game..."
-		await get_tree().create_timer(0.1).timeout
-		
-		get_tree().quit()
+		_on_quit_game_button_pressed()
 
 func _on_start_game_button_pressed() -> void:
 	# BYTER SCEN TILL HUVUDSCENEN EFTER 0,4 SEKUNDER (LITEN "TEXTANIMATION")
+	preload("res://Scenes/main_map.tscn")
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game"
 	await get_tree().create_timer(0.1).timeout
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game."
@@ -32,7 +24,7 @@ func _on_start_game_button_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game..."
 	await get_tree().create_timer(0.1).timeout
-	
+
 	get_tree().change_scene_to_file("res://Scenes/main_map.tscn")
 	
 func _on_quit_game_button_pressed() -> void:

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bvtfq60f5tq4g" path="res://UI/Overlay/stamina_bar.gd" id="1_suays"]
 [ext_resource type="FontFile" uid="uid://cmx17cdrw4mw0" path="res://Assets/Fonts/monogram-extended.ttf" id="2_kx6rt"]
 [ext_resource type="Script" uid="uid://bcug4hoq46qhy" path="res://UI/Overlay/flashlight_battery_bar.gd" id="3_17sd4"]
-[ext_resource type="AudioStream" uid="uid://d13dokvvdwio6" path="res://Assets/Audio/Music/Ljudmatta läskig 1.wav" id="3_kx6rt"]
 [ext_resource type="FontFile" uid="uid://do1w6iejky5sd" path="res://Assets/Fonts/monogram.ttf" id="4_j81ll"]
+[ext_resource type="AudioStream" uid="uid://bmaanimby7lgj" path="res://Assets/Audio/SFX/Fågelkvitter1.mp3" id="5_j81ll"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41gti"]
 
@@ -182,6 +182,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1153944169]
-stream = ExtResource("3_kx6rt")
-volume_db = -40.0
+stream = ExtResource("5_j81ll")
+volume_db = -30.0
 autoplay = true
+parameters/looping = true

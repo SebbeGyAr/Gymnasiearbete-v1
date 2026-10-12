@@ -118,7 +118,8 @@ text = "Quit Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83177547]
 stream = ExtResource("4_ch4um")
-volume_db = -50.0
+volume_db = -65.0
+parameters/looping = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]

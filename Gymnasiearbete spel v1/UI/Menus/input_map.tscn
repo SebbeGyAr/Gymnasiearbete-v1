@@ -102,6 +102,7 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=832338240]
 stream = ExtResource("2_13nko")
-volume_db = -50.0
+volume_db = -65.0
+parameters/looping = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

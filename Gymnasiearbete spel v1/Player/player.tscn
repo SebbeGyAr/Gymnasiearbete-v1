@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5mfuue8sa00l"]
 
 [ext_resource type="Script" uid="uid://df7mipo3d8mxg" path="res://Player/playerscript.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://bck2766b8r3k0" path="res://Assets/Art/Characters/New Walking and Idle Animation Right tileset.png" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bck2766b8r3k0" path="res://Assets/Art/Characters/Main Character tilemap.png" id="2_4ntmi"]
 [ext_resource type="PackedScene" uid="uid://bak6qrdrrk1ea" path="res://UI/Overlay/flashlight.tscn" id="3_gwnis"]
 [ext_resource type="Texture2D" uid="uid://dqs4igtxst7tn" path="res://Assets/Art/Ficklampa.png" id="4_gwnis"]
 
@@ -230,6 +230,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Player" type="CharacterBody2D" unique_id=1622405903]
 script = ExtResource("1_onrkg")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1497973915]
 position = Vector2(0, 19.125)
@@ -240,7 +241,7 @@ metadata/_edit_lock_ = true
 texture = ExtResource("2_4ntmi")
 hframes = 4
 vframes = 3
-frame = 10
+frame = 11
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493621467]
@@ -272,7 +273,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="FlashlightSprite" type="Sprite2D" parent="FlashlightPivot" unique_id=2090114102]
-position = Vector2(2.5, 1)
+position = Vector2(2.5, 2)
 texture = ExtResource("4_gwnis")
 vframes = 2
 metadata/_edit_lock_ = true

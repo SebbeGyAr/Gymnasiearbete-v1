@@ -86,11 +86,11 @@ func reload():
 
 func _physics_process(_delta): 
 	# CALLAR PÅ SKJUTFUNTKION OM canShoot OCH hasRifle STÄMMER SAMT ATT SPELAREN TRYCKER PÅ SKJUTKNAPPEN
-	if Input.is_action_just_pressed("shoot") and canShoot and GlobalVariables.hasRifle:
+	if Input.is_action_just_pressed("shoot") and canShoot and GlobalVariables.hasRifle and GlobalVariables.rifleEquipped:
 		shoot()
 
 	# CALLAR PÅ RELOADFUNTKION OM canShoot OCH hasRifle STÄMMER SAMT ATT SPELAREN TRYCKER PÅ RELOADKNAPPEN
-	if Input.is_action_just_pressed("reload") and canShoot and GlobalVariables.hasRifle:
+	if Input.is_action_just_pressed("reload") and canShoot and GlobalVariables.hasRifle and GlobalVariables.rifleEquipped:
 		reload()
 
 	# INPUT RIKTNING LAGRAS I EN MATRIS [-1, -1] TILL [1, 1], GER 9 OLIKA MÖJLIGA INPUTRIKNINGAR, ALLA 8 MÖJLIGA RIKNINGAR + STILLASTÅENDE

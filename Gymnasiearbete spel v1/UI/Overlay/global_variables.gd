@@ -32,6 +32,8 @@ func _process(_delta: float) -> void:
 	if not hasFlashlight: 
 		flashlightEnabled = false
 	
+	if Input.is_action_just_pressed("swapEquipped"):
+		rifleEquipped = not rifleEquipped
 	# UPPDATERAR FLASHLIGHT SYNBARHET, BEHÖVS FÖR ATT KONSEKVENT KUNNA KOMMA IN UTAN ATT KRASCHA
 	update_flashlight_visibility()
 
@@ -49,7 +51,7 @@ func toggle_flashlight():
 func update_flashlight_visibility():
 	# GÖR SÅ ATT MAN SER FLASHLIGHTEN KONSEKVENT SOM DET ÄR MENAT GENOM ATT UPPDATERA VARJE FRAME
 	if flashlightSprite:
-		flashlightSprite.visible = hasFlashlight
+		flashlightSprite.visible = hasFlashlight and not rifleEquipped
 	
 	# UPPDATERAR HUR SJÄLVA FICKLAMPE-SPRITEN SER UT OM DEN ÄR PÅ RESPEKTIVE AV, ENDAST OM FLASHLIGHTSPRITE HAR BLIVIT GIVET ETT VÄRDE AV SPELARENS _ready()
 	if flashlightSprite != null:

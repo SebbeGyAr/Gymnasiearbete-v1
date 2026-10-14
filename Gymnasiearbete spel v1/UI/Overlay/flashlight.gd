@@ -67,8 +67,8 @@ extends Node2D
 # HUR SMOOTH SJÄLVA LJUSSTRÅLEN RÖR SIG
 const SMOOTH_SPEED = 10
 
-# HUR MYCKET BATTERI SOM FÖRSVINNER VARJE DELTA
-const BATTERY_DRAIN_SPEED = 10
+# ANTALET PROCENT BATTERI SOM FÖRSVINNER I SEKUNDEN
+const BATTERY_DRAIN_SPEED = 1
 const TARGET_BASE_POSITION = Vector2(25, 0)
 
 var isFlickering = false
@@ -97,7 +97,7 @@ func _process(delta: float) -> void:
 	# target.position ÄR SAMMA SOM RIKTNINGSVEKTORN EFTERSOM ÄNDRINGEN ÄR LOKAL
 	rotation = lerp_angle(rotation, target.position.angle(), t)
 	
-	if not (GlobalVariables.hasFlashlight and GlobalVariables.flashlightEnabled) or GlobalVariables.flashlightBattery <= 0:
+	if not (GlobalVariables.hasFlashlight and GlobalVariables.flashlightEnabled) or GlobalVariables.flashlightBattery <= 0 or GlobalVariables.rifleEquipped:
 		flashlight.enabled = false
 	else:
 		flashlight.enabled = true
@@ -105,7 +105,7 @@ func _process(delta: float) -> void:
 	if GlobalVariables.flashlightBattery < 10 and GlobalVariables.flashlightEnabled: 
 		flashlight_flicker()
 		
-	if GlobalVariables.flashlightEnabled and GlobalVariables.hasFlashlight and GlobalVariables.flashlightBattery > 0: 
+	if GlobalVariables.flashlightEnabled and GlobalVariables.hasFlashlight and GlobalVariables.flashlightBattery > 0 and not GlobalVariables.rifleEquipped: 
 		GlobalVariables.flashlightBattery -= delta * BATTERY_DRAIN_SPEED
 
 func flashlight_flicker():

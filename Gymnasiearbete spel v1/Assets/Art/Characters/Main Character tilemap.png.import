@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bck2766b8r3k0"
-path="res://.godot/imported/New Walking and Idle Animation Right tileset.png-1b5fac0b5a03d629aa6e5498514388b5.ctex"
+path="res://.godot/imported/Main Character tilemap.png-49d0d44bb65b0114a64d6c629d7f7ead.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Characters/New Walking and Idle Animation Right tileset.png"
-dest_files=["res://.godot/imported/New Walking and Idle Animation Right tileset.png-1b5fac0b5a03d629aa6e5498514388b5.ctex"]
+source_file="res://Assets/Art/Characters/Main Character tilemap.png"
+dest_files=["res://.godot/imported/Main Character tilemap.png-49d0d44bb65b0114a64d6c629d7f7ead.ctex"]
 
 [params]
 

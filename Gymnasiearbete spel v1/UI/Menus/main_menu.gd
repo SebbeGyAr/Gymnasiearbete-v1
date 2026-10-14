@@ -7,6 +7,7 @@ func _ready() -> void:
 	# STARTAR MENYMUSIK SÅ FORT MAN KOMMER IN I SPELET
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
 	AudioServer.set_bus_volume_db(0, GlobalVariables.soundSlider)
+	preload("res://Scenes/main_map.tscn")
 
 func _process(_delta: float) -> void:
 	# STÄNGER SPELET EFTER 0,4 SEKUNDER OM ESCAPE TRYCKS NED
@@ -15,7 +16,6 @@ func _process(_delta: float) -> void:
 
 func _on_start_game_button_pressed() -> void:
 	# BYTER SCEN TILL HUVUDSCENEN EFTER 0,4 SEKUNDER (LITEN "TEXTANIMATION")
-	preload("res://Scenes/main_map.tscn")
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game"
 	await get_tree().create_timer(0.1).timeout
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game."

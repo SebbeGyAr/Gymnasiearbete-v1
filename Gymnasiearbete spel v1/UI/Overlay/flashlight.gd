@@ -68,7 +68,7 @@ extends Node2D
 const SMOOTH_SPEED = 10
 
 # HUR MYCKET BATTERI SOM FÖRSVINNER VARJE DELTA
-const BATTERY_DRAIN_SPEED = 0.001
+const BATTERY_DRAIN_SPEED = 10
 const TARGET_BASE_POSITION = Vector2(25, 0)
 
 var isFlickering = false
@@ -106,7 +106,7 @@ func _process(delta: float) -> void:
 		flashlight_flicker()
 		
 	if GlobalVariables.flashlightEnabled and GlobalVariables.hasFlashlight and GlobalVariables.flashlightBattery > 0: 
-		GlobalVariables.flashlightBattery -= BATTERY_DRAIN_SPEED
+		GlobalVariables.flashlightBattery -= delta * BATTERY_DRAIN_SPEED
 
 func flashlight_flicker():
 	if isFlickering:

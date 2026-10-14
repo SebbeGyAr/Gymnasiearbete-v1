@@ -16,6 +16,7 @@ var hasRifle = true
 var flashlightBattery = 100
 var canShoot = false
 var playerCanShoot = false
+var rifleEquipped = null
 
 
 func _process(_delta: float) -> void:
@@ -52,6 +53,6 @@ func update_flashlight_visibility():
 	
 	# UPPDATERAR HUR SJÄLVA FICKLAMPE-SPRITEN SER UT OM DEN ÄR PÅ RESPEKTIVE AV, ENDAST OM FLASHLIGHTSPRITE HAR BLIVIT GIVET ETT VÄRDE AV SPELARENS _ready()
 	if flashlightSprite != null:
-		if flashlightEnabled: 
+		if flashlightEnabled and flashlightBattery > 0: 
 			flashlightSprite.frame = 1
 		else: flashlightSprite.frame = 0

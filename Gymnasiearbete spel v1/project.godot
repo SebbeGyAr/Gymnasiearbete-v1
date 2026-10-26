@@ -34,6 +34,10 @@ window/stretch/aspect="ignore"
 window/per_pixel_transparency/allowed=true
 window/vsync/vsync_mode=0
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [input]
 
 up={

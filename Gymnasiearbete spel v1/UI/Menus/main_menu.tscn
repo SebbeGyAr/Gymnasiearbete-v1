@@ -3,10 +3,11 @@
 [ext_resource type="Theme" uid="uid://vifxtjbmrwv4" path="res://Assets/Themes/DefaultTheme.tres" id="1_hvwfg"]
 [ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://UI/Menus/main_menu.gd" id="2_i77qe"]
 [ext_resource type="Texture2D" uid="uid://d1s8xb0763wj4" path="res://Assets/Art/forest_background_pixelated.png" id="3_acdr8"]
+[ext_resource type="FontFile" uid="uid://cjk856yop7636" path="res://Assets/Fonts/HomeVideo-BLG6G.ttf" id="4_37sxc"]
 [ext_resource type="AudioStream" uid="uid://p7lfs50d22ds" path="res://Assets/Audio/Music/TitleMusic1.mp3" id="4_ch4um"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v78dc"]
-font_size = 64
+font_size = 100
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -41,6 +42,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -57,28 +59,34 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=999638927]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 64
+size_flags_stretch_ratio = 1.21
+theme_override_fonts/font = ExtResource("4_37sxc")
+theme_override_font_sizes/font_size = 160
 text = "Superduperbestgame"
 label_settings = SubResource("LabelSettings_v78dc")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 metadata/_edit_lock_ = true
 
 [node name="ButtonsVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=905333597]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 10
+size_flags_stretch_ratio = 1.42
+theme_override_constants/separation = 20
 
 [node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=982132633]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 8
+size_flags_stretch_ratio = 4.59
 focus_neighbor_left = NodePath("../QuitGameButton")
 focus_neighbor_top = NodePath("../QuitGameButton")
 focus_neighbor_right = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 focus_next = NodePath("../OptionsButton")
 focus_previous = NodePath("../QuitGameButton")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("4_37sxc")
+theme_override_font_sizes/font_size = 50
 text = "Start Game"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=273307926]
@@ -89,7 +97,8 @@ focus_neighbor_right = NodePath("../InputMapButton")
 focus_neighbor_bottom = NodePath("../InputMapButton")
 focus_next = NodePath("../InputMapButton")
 focus_previous = NodePath("../StartGameButton")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("4_37sxc")
+theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="InputMapButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=2094176727]
@@ -101,7 +110,8 @@ focus_neighbor_right = NodePath("../QuitGameButton")
 focus_neighbor_bottom = NodePath("../QuitGameButton")
 focus_next = NodePath("../QuitGameButton")
 focus_previous = NodePath("../OptionsButton")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("4_37sxc")
+theme_override_font_sizes/font_size = 50
 text = "Input Map"
 
 [node name="QuitGameButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsVBox" unique_id=1014486413]
@@ -113,12 +123,13 @@ focus_neighbor_right = NodePath("../StartGameButton")
 focus_neighbor_bottom = NodePath("../StartGameButton")
 focus_next = NodePath("../StartGameButton")
 focus_previous = NodePath("../InputMapButton")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("4_37sxc")
+theme_override_font_sizes/font_size = 50
 text = "Quit Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83177547]
 stream = ExtResource("4_ch4um")
-volume_db = -65.0
+volume_db = -61.351
 parameters/looping = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

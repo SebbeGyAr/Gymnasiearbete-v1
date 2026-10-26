@@ -78,6 +78,7 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("3_xc6fc")
 theme_override_font_sizes/font_size = 64
 text = "Options"
 vertical_alignment = 1
@@ -86,11 +87,13 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
+theme_override_constants/separation = 19
 
 [node name="ResolutionLabel" type="Label" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=13615708]
 texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_xc6fc")
+theme_override_font_sizes/font_size = 38
 text = "Resolution"
 
 [node name="ResolutionMenu" type="OptionButton" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=1423790502]
@@ -100,6 +103,7 @@ size_flags_vertical = 0
 theme_override_colors/font_focus_color = Color(0.2509804, 0.38431373, 0.5921569, 1)
 theme_override_colors/font_pressed_color = Color(0.20784314, 0.26666668, 0.38039216, 1)
 theme_override_colors/font_hover_color = Color(0.72156864, 0.83137256, 1, 1)
+theme_override_fonts/font = ExtResource("3_xc6fc")
 theme_override_font_sizes/font_size = 32
 button_group = SubResource("ButtonGroup_lc8e3")
 selected = 2
@@ -118,7 +122,8 @@ popup/item_4/id = 4
 [node name="FramerateLabel" type="Label" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=600005676]
 texture_filter = 1
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_xc6fc")
+theme_override_font_sizes/font_size = 38
 text = "Framerate"
 
 [node name="FramerateLimitMenu" type="OptionButton" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=1390052523]
@@ -126,6 +131,7 @@ layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.2509804, 0.38431373, 0.5921569, 1)
 theme_override_colors/font_pressed_color = Color(0.20784314, 0.26666668, 0.38039216, 1)
 theme_override_colors/font_hover_color = Color(0.72156864, 0.83137256, 1, 1)
+theme_override_fonts/font = ExtResource("3_xc6fc")
 theme_override_font_sizes/font_size = 32
 selected = 0
 item_count = 8
@@ -148,24 +154,28 @@ popup/item_7/id = 7
 
 [node name="FullscreenButton" type="CheckButton" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=917252454]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_xc6fc")
+theme_override_font_sizes/font_size = 38
 text = "Fullscreen"
 
 [node name="VSyncButton" type="CheckButton" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=1631401861]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_xc6fc")
+theme_override_font_sizes/font_size = 38
 text = "VSync Enabled"
 
 [node name="MasterSoundLabel" type="Label" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=1811516630]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("3_xc6fc")
+theme_override_font_sizes/font_size = 38
 text = "Master Sound"
 label_settings = SubResource("LabelSettings_ch4um")
 
 [node name="MasterSoundSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=547061851]
 layout_mode = 2
 max_value = 40.0
+step = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=289654118]
 stream = ExtResource("3_v78dc")

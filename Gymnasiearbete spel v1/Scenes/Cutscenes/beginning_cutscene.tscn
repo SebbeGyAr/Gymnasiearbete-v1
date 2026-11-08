@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b6juc75p5td2w"]
+
+[ext_resource type="VideoStream" uid="uid://biyt4jeo0d4uw" path="res://Assets/Art/TempArt/test2.ogv" id="1_ct4f8"]
+
+[node name="BeginningCutscene" type="Control" unique_id=1160966890]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=660060311]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("1_ct4f8")
+autoplay = true
+expand = true
+loop = true

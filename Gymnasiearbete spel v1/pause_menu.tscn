@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cq57fp3imft47"]
+
+[ext_resource type="Script" uid="uid://b4sip7c773hl1" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="FontFile" uid="uid://cmx17cdrw4mw0" path="res://Assets/Fonts/monogram-extended.ttf" id="2_05uyy"]
+
+[node name="PauseMenu" type="Control" unique_id=707032094]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwcfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1139086926]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1280061813]
+z_index = 1000
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=833698211]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+text = "Resume"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1880800503]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+text = "Save"
+
+[node name="QuitMain" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1667243968]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+text = "Quit to main menu"
+
+[node name="QuitDesktop" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1695715915]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+text = "Quit to desktop"
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1153749823]
+z_index = 999
+layout_mode = 2

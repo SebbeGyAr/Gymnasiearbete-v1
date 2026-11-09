@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b6juc75p5td2w"]
 
 [ext_resource type="VideoStream" uid="uid://biyt4jeo0d4uw" path="res://Assets/Art/TempArt/test2.ogv" id="1_ct4f8"]
+[ext_resource type="Script" uid="uid://jbeq7a5e2a5o" path="res://Scenes/Cutscenes/beginning_cutscene.gd" id="1_irsnq"]
+[ext_resource type="PackedScene" uid="uid://cuixffmlmd3d7" path="res://UI/Overlay/textbox.tscn" id="2_6r57t"]
 
 [node name="BeginningCutscene" type="Control" unique_id=1160966890]
 layout_mode = 3
@@ -9,6 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_irsnq")
+
+[node name="Textbox" parent="." unique_id=731812116 instance=ExtResource("2_6r57t")]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=660060311]
 layout_mode = 0

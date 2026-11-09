@@ -16,12 +16,12 @@ var hasRifle = true
 var flashlightBattery = 100
 var canShoot = false
 var playerCanShoot = false
-var rifleEquipped = null
+var rifleEquipped = false
 
 
 func _process(_delta: float) -> void:
 	# TOGGLE FLASHLIGHT FUNKTIONALITET
-	if Input.is_action_just_pressed("toggleFlashlight"):
+	if Input.is_action_just_pressed("toggleFlashlight") and hasFlashlight:
 		toggle_flashlight()
 	
 	# EN TILLFÄLLIG KNAPP FÖR ATT KUNNA GE OCH TA FICKLAMPAN TILL OCH FRÅN SPELAREN, ANVÄNDNING 2 AV FUSKKNAPP

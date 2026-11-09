@@ -98,7 +98,11 @@ func _physics_process(_delta):
 		Input.get_action_strength("right") - Input.get_action_strength("left"), 
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
-		
+	
+	if GlobalVariables.rifleEquipped: 
+		$Sprite2D.texture = load("res://Assets/Art/Characters/Test v1.png")
+	else: $Sprite2D.texture = load("res://Assets/Art/Characters/Main Character tilemap.png")
+	
 	# UPPDATERA ANIMATIONER RELATERADE TILL RÖRELSE OCH FICKLAMPA
 	update_animation_parameters(inputDirection)
 	

@@ -96,7 +96,7 @@ Reload             - R
 
 Cheat button (temp)- 0 (zero)
 
-Point flashlight   - mouse"
+Swap Equipped      - Q"
 label_settings = SubResource("LabelSettings_4jqe8")
 metadata/_edit_lock_ = true
 

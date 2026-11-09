@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cuixffmlmd3d7"]
+
+[ext_resource type="Script" uid="uid://bmoeltlwt18o6" path="res://textbox.gd" id="1_ptcjm"]
+[ext_resource type="FontFile" uid="uid://cmx17cdrw4mw0" path="res://Assets/Fonts/monogram-extended.ttf" id="1_vng66"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cf174"]
+bg_color = Color(0, 0, 0, 0.49803922)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="Textbox" type="CanvasLayer" unique_id=731812116]
+script = ExtResource("1_ptcjm")
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1580552439]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -348.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=1558550438]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cf174")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer" unique_id=1921955172]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Info" type="Label" parent="TextboxContainer/MarginContainer" unique_id=1505628803]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_vng66")
+theme_override_font_sizes/font_size = 64
+text = "Press Space to skip"
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer" unique_id=1159235344]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer" unique_id=528850557]
+layout_mode = 2
+
+[node name="Speaker" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=1911056745]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_vng66")
+theme_override_font_sizes/font_size = 64
+text = "Character: "
+
+[node name="Text" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=1800776128]
+custom_minimum_size = Vector2(1452, 198)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_vng66")
+theme_override_font_sizes/font_size = 64
+text = "The quick brown fox jumped over the lazy dog. "
+autowrap_mode = 1
+clip_text = true

@@ -25,7 +25,7 @@ func _on_start_game_button_pressed() -> void:
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game..."
 	await get_tree().create_timer(0.1).timeout
 
-	get_tree().change_scene_to_file("res://Scenes/Playable Scenes/main_map.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Cutscenes/beginning_cutscene.tscn")
 	
 func _on_quit_game_button_pressed() -> void:
 	# STÄNGER SPELET OM QUIT-KNAPPEN TRYCKS NED EFTER 0,4 SEKUNDER (LITEN "TEXTANIMATION")

@@ -14,14 +14,17 @@ var staminaOnCooldown = float(0)
 var staminaRecoverySpeed = 0.25
 var stamina = 100.0
 var canShoot = true
+var paused = false
+
 @onready var animationTree = $AnimationTree
 @onready var stateMachine = animationTree.get("parameters/playback")
-
+@onready var pauseMenu = $PauseMenu
 # PRELOADAR SCENEN bullet.tscn SOM VARIABELN Bullet, SOM KAN INSTANTIERAS FÖR ATT SKJUTA
 var Bullet = preload("res://Entities/Misc/bullet.tscn")
 
 func _ready():
 	# GÖR VAD SOM STÅR I BASICALLY PLAINTEXT
+	pauseMenu.hide()
 	update_animation_parameters(startingDirection)
 	stamina = GlobalVariables.stamina
 	GlobalVariables.set_flashlight_sprite($FlashlightPivot/FlashlightSprite)
@@ -44,6 +47,12 @@ func shoot():
 	var direction = (get_global_mouse_position() - $Muzzle.global_position).normalized()
 	b.rotation = direction.angle()
 	
+	$Muzzle/MuzzleFlash1.energy = 10
+	$Muzzle/MuzzleFlash2.energy = 10
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Muzzle/MuzzleFlash1, "energy", 0, 0.05)
+	tween.tween_property($Muzzle/MuzzleFlash2, "energy", 0, 0.05)
 
 	# EN LITEN "TEXTANIMATION" EFTER ATT HA SKJUTIT SOM BLEV SCHYSST, SOM OCKSÅ GÖR DET GANSKA TYDLIGT ATT MAN INTE KAN SKJUTA FÖRRÄN DEN ÄR SLUT
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Cocking.    : %s/5" %GlobalVariables.bulletsLeft
@@ -124,6 +133,9 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("cheatbutton"): 
 		staminaRecoverySpeed *= 2
 
+	if Input.is_action_just_pressed("pause"):
+		pause_menu()
+
 	# KOLLAR VÄRDEN I TESTSYFTEN
 	# print("
 	# Stamina: ", stamina, "
@@ -133,6 +145,7 @@ func _physics_process(_delta):
 			
 	# SÄTTER VELOCITY
 	velocity = inputDirection.normalized() * movementSpeed
+	
 	
 	# LÅTER SPELAREN, WELL, MOVE AND SLIDE
 	move_and_slide()
@@ -157,3 +170,14 @@ func pick_new_state():
 			stateMachine.travel("Walk")
 	else: 
 		stateMachine.travel("Idle")
+
+func pause_menu():
+	if paused: 
+		pauseMenu.hide()
+		Engine.time_scale = 1
+
+	else: 
+		pauseMenu.show()
+		Engine.time_scale = 0
+
+	paused = not paused

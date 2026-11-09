@@ -6,9 +6,12 @@ extends Node2D
 @onready var camera = $Player/Camera2D
 @onready var sprite2D = $Player/Sprite2D
 @onready var flashlight = $Player/FlashlightPivot/FlashlightSprite
+
+
 var muzzleFlip = false
 var flashlightOffsetX = 7.0
 var facingLeft = false
+
 
 func _ready() -> void:
 	# HAR ANVÄNTS FÖR ATT SPAWNA SPELAREN UTANFÖR HUSET I TESTSPELET, BEHÅLLER ÅT FRAMTIDA HUS
@@ -22,11 +25,16 @@ func _ready() -> void:
 	camera.zoom = Vector2(5, 5)
 
 
+
 func move_muzzle(arg, t):
 	# OM INTE facingLeft OCH arg ÖVERENSSTÄMMER, SÄTT DEM TILL SAMMA OCH FLYTTA PÅ Muzzle OCH PIVOTA FLASHLIGHT-SPRITEN RUNT FlashlightPivot
 	if arg != facingLeft:
 		facingLeft = arg
 		$Player/Muzzle.position.x *= -1
+		$Player/Muzzle/MuzzleFlash1.rotation *= -1
+		$Player/Muzzle/MuzzleFlash2.rotation *= -1
+		$Player/Muzzle/MuzzleFlash1.position.x *= -1
+		$Player/Muzzle/MuzzleFlash2.position.x *= -1
 		$Player/FlashlightPivot.scale.x *= -1
 	
 	# OM move_muzzle SKICKATS MED arg = true AKA SKA FLYTTAS PÅ SÅ FLYTTA FLASHLIGHTNODE MOT ANDRA SIDAN AV SPELAREN MHA LERP (<3 LERP)
@@ -50,10 +58,6 @@ func _physics_process(delta: float) -> void:
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	)
-	
-	# SKICKAR TILLBAKA TILL MAIN MENU OM ESCAPE TRYCKS NED
-	if Input.is_action_just_pressed("ui_cancel"): 
-		get_tree().change_scene_to_file("res://UI/Menus/main_menu.tscn")
 	
 	# FLYTTAR FLASHLIGHT-BEAMEN UPP ELLER NER, ALTERNATIVT MOT MITTEN, BORTKOMMENTERAT TILLFÄLLIGT I TESTSYFTEN
 	"""	if Input.get_action_strength("down") - Input.get_action_strength("up") > 0:
@@ -79,6 +83,8 @@ func _physics_process(delta: float) -> void:
 		targetOffset.y = targetDistance
 	elif inputDirection.y < 0:
 		targetOffset.y = -targetDistance
+	
+
 	
 	# LERPAR KAMERAN MOT targetOffset, SAMT CALLAR PÅ move_muzzle()
 	camera.offset = camera.offset.lerp(targetOffset, t)

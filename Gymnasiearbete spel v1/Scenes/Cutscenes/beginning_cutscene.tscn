@@ -15,11 +15,26 @@ script = ExtResource("1_irsnq")
 
 [node name="Textbox" parent="." unique_id=731812116 instance=ExtResource("2_6r57t")]
 
+[node name="TextboxContainer" parent="Textbox" index="0" unique_id=1580552439]
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 348.0
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=660060311]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("1_ct4f8")
 autoplay = true
 expand = true
 loop = true
+metadata/_edit_lock_ = true
+
+[editable path="Textbox"]

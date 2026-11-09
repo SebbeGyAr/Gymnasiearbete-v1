@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cq57fp3imft47"]
+
+[ext_resource type="Script" uid="uid://b4sip7c773hl1" path="res://UI/Overlay/pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="FontFile" uid="uid://cmx17cdrw4mw0" path="res://Assets/Fonts/monogram-extended.ttf" id="2_05uyy"]
+[ext_resource type="Shader" uid="uid://ld4vlmc1t6lv" path="res://UI/Overlay/pause_menu.gdshader" id="3_pm2x1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ok42"]
+bg_color = Color(0, 0, 0, 0.49803922)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48bnr"]
+bg_color = Color(0, 0, 0, 0.49803922)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pm2x1"]
+bg_color = Color(0, 0, 0, 0.49803922)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdyct"]
+bg_color = Color(0, 0, 0, 0.49803922)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jqe8"]
+shader = ExtResource("3_pm2x1")
+shader_parameter/amount = 3.0000001425
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=953631337]
+process_mode = 3
+script = ExtResource("1_nwcfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1139086926]
+z_index = 1000
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1280061813]
+z_index = 1000
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=833698211]
+z_index = 1000
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ok42")
+text = "Resume"
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1880800503]
+z_index = 1000
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_48bnr")
+text = "Save"
+
+[node name="QuitMain" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1667243968]
+z_index = 1000
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_pm2x1")
+text = "Quit to main menu"
+
+[node name="QuitDesktop" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1695715915]
+z_index = 1000
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdyct")
+text = "Quit to desktop"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1457769200]
+material = SubResource("ShaderMaterial_4jqe8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitMain" to="." method="_on_quit_main_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitDesktop" to="." method="_on_quit_desktop_pressed"]

@@ -67,13 +67,14 @@ func show_textbox(speaker):
 	
 
 # LÄGGER TILL TEXT MHA TWEEN FÖR ATT LÅNGSAMT AVSLÖJA TEXTEN
-func display_text(font=null):
+func display_text(font=false):
 	var addedText = textQueue.pop_front()
 	# SKAPAR EN TWEEN SÅ ATT TEXTEN KAN AVSLÖJAS LÅNGSAMT
 	tween = create_tween()
 	tween.set_trans(Tween.TRANS_LINEAR)
 	
-	text.add_theme_font_override("font", font)
+	if font: 
+		text.add_theme_font_override("font", font)
 	
 	text.visible_characters = 0
 	show_textbox("Tester")

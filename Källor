@@ -23,8 +23,6 @@ https://youtu.be/V4SO7foDoW4?is=a_WkeMr0b5riPZoV
 Animerade Tilemaps: 
 https://www.youtube.com/watch?v=zH8nxWt9ojs
 
-Försökte hitta en tutorial för sprinting men fann aldrig någon för det movement systemet vi har så körde på en del trial and error, det verkar fungera i nuläget
-
 Anti Jitter/Ghosting/Screen Tearing/Input Lag: 
 https://forum.godotengine.org/t/godot-4-2d-movement-causing-ghost-jitter-blur-fix/62706
 https://docs.godotengine.org/en/latest/tutorials/rendering/jitter_stutter.html
@@ -88,6 +86,11 @@ https://docs.godotengine.org/en/latest/tutorials/math/random_number_generation.h
 
 Stringformatering: 
 https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_format_string.html
+
+.ase till .mp4, .webm och .gif: 
+https://ezgif.com/aseprite-to-mp4/ezgif-8475d13fca7816ab.ase.html
+https://ezgif.com/aseprite-to-webm/ezgif-8475d13fca7816ab.ase.html
+https://ezgif.com/aseprite-to-gif/ezgif-8475d13fca7816ab.ase.html
 
 Textrutor: 
 https://www.youtube.com/watch?v=QEHOiORnXIk

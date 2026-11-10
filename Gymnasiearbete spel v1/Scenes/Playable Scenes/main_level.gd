@@ -1,7 +1,6 @@
 extends Node2D
 
-# REMNANT FRÅN TESTSPELET
-#var Cow = preload("res://scenes/Non Character Entities/cow.tscn")
+
 @onready var player = $Player
 @onready var camera = $Player/Camera2D
 @onready var sprite2D = $Player/Sprite2D

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b5wqlih3e8u8n" path="res://UI/Menus/main_menu.gd" id="2_i77qe"]
 [ext_resource type="Texture2D" uid="uid://d1s8xb0763wj4" path="res://Assets/Art/Misc/forest_background_pixelated.png" id="3_acdr8"]
 [ext_resource type="FontFile" uid="uid://cjk856yop7636" path="res://Assets/Fonts/HomeVideo-BLG6G.ttf" id="4_37sxc"]
+[ext_resource type="FontFile" uid="uid://cmx17cdrw4mw0" path="res://Assets/Fonts/monogram-extended.ttf" id="4_328dx"]
 [ext_resource type="AudioStream" uid="uid://p7lfs50d22ds" path="res://Assets/Audio/Music/TitleMusic1.mp3" id="4_ch4um"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v78dc"]
@@ -20,12 +21,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_hvwfg")
 script = ExtResource("2_i77qe")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1877683441]
 position = Vector2(9.536743e-07, -5.684342e-14)
 scale = Vector2(12.2293, 11.3125)
 texture = ExtResource("3_acdr8")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1444292377]
 layout_mode = 1
@@ -59,10 +62,9 @@ metadata/_edit_lock_ = true
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=999638927]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.21
-theme_override_fonts/font = ExtResource("4_37sxc")
+theme_override_fonts/font = ExtResource("4_328dx")
 theme_override_font_sizes/font_size = 160
-text = "Superduperbestgame"
+text = "Puppeteered"
 label_settings = SubResource("LabelSettings_v78dc")
 horizontal_alignment = 1
 vertical_alignment = 2

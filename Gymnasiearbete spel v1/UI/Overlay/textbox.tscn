@@ -9,7 +9,7 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 0.49803922)
 
 [node name="Textbox" type="CanvasLayer" unique_id=731812116]
 script = ExtResource("1_ptcjm")
@@ -64,6 +64,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("1_vng66")
 theme_override_font_sizes/font_size = 64
-text = "The quick brown fox jumped over the lazy dog. "
-autowrap_mode = 1
+text = "The quick brown fox jumped over the lazy dog. Sphinx of black quartz, judge my vow. "
+autowrap_mode = 2
 clip_text = true

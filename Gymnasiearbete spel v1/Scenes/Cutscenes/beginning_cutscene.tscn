@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://jbeq7a5e2a5o" path="res://Scenes/Cutscenes/beginning_cutscene.gd" id="1_irsnq"]
 [ext_resource type="PackedScene" uid="uid://cuixffmlmd3d7" path="res://UI/Overlay/textbox.tscn" id="2_6r57t"]
 
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_irsnq"]
+
 [node name="BeginningCutscene" type="Control" unique_id=1160966890]
 layout_mode = 3
 anchors_preset = 15
@@ -37,5 +39,8 @@ autoplay = true
 expand = true
 loop = true
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424071116]
+stream = SubResource("AudioStreamMP3_irsnq")
 
 [editable path="Textbox"]

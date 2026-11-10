@@ -1,10 +1,12 @@
 extends Control
 
 var resolutions =[
-	Vector2(3840,2160),
-	Vector2(2560,1440),
-	Vector2(1920,1080),
-	Vector2(1280,720),
+	Vector2(3840, 2160),
+	Vector2(2560, 1440),
+	Vector2(1920, 1080),
+	Vector2(1280, 720),
+	Vector2(854, 480),
+	Vector2(256, 144),
 	Vector2(128, 72)
 ]
 
@@ -53,18 +55,30 @@ func _on_resolution_menu_item_selected(index: int) -> void:
 		0: 
 			GlobalVariables.resolutionSet = 0
 			DisplayServer.window_set_size(resolutions[0])
+			
 		1: 
 			GlobalVariables.resolutionSet = 1
 			DisplayServer.window_set_size(resolutions[1])
+			
 		2: 
 			GlobalVariables.resolutionSet = 2
 			DisplayServer.window_set_size(resolutions[2])
+			
 		3: 
 			GlobalVariables.resolutionSet = 3
 			DisplayServer.window_set_size(resolutions[3])
+			
 		4: 
 			GlobalVariables.resolutionSet = 4
 			DisplayServer.window_set_size(resolutions[4])
+			
+		5: 
+			GlobalVariables.resolutionSet = 5
+			DisplayServer.window_set_size(resolutions[5])
+
+		6: 
+			GlobalVariables.resolutionSet = 6
+			DisplayServer.window_set_size(resolutions[6])
 
 
 func _on_framerate_limit_menu_item_selected(index: int) -> void:

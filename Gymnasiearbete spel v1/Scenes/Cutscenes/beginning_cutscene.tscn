@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cuixffmlmd3d7" path="res://UI/Overlay/textbox.tscn" id="2_6r57t"]
 [ext_resource type="AudioStream" uid="uid://bpvkykgg76kk2" path="res://Assets/Audio/Music/Intromusik.mp3" id="4_ba71s"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jqe8"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="BeginningCutscene" type="Control" unique_id=1160966890]
 layout_mode = 3
 anchors_preset = 15
@@ -41,8 +44,17 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424071116]
 stream = ExtResource("4_ba71s")
-volume_db = -40.0
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
+
+[node name="Panel" type="Panel" parent="." unique_id=850564921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jqe8")
 
 [editable path="Textbox"]

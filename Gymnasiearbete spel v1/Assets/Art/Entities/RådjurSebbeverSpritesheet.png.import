@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqfojn3ks26al"
-path="res://.godot/imported/HjortSpritesheet.png-6d79353d7569561d29e7cf7187245d78.ctex"
+uid="uid://dfijmkyssp524"
+path="res://.godot/imported/RådjurSebbeverSpritesheet.png-ecd56863281451ef6cc8db61d485f275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Characters/HjortSpritesheet.png"
-dest_files=["res://.godot/imported/HjortSpritesheet.png-6d79353d7569561d29e7cf7187245d78.ctex"]
+source_file="res://Assets/Art/Entities/RådjurSebbeverSpritesheet.png"
+dest_files=["res://.godot/imported/RådjurSebbeverSpritesheet.png-ecd56863281451ef6cc8db61d485f275.ctex"]
 
 [params]
 

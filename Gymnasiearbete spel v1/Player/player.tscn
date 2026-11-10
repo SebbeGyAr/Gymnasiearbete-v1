@@ -255,7 +255,7 @@ metadata/_edit_lock_ = true
 texture = ExtResource("2_gwnis")
 hframes = 4
 vframes = 3
-frame = 11
+frame = 10
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493621467]
@@ -271,8 +271,6 @@ parameters/Walk/blend_position = Vector2(0, 0)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1897870709]
 limit_left = 0
 limit_top = 0
-limit_right = 1920
-limit_bottom = 1920
 metadata/_edit_lock_ = true
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=447959464]
@@ -306,7 +304,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="FlashlightSprite" type="Sprite2D" parent="FlashlightPivot" unique_id=2090114102]
-position = Vector2(2.5, 2)
+position = Vector2(2.5, 1)
 texture = ExtResource("4_gwnis")
 vframes = 2
 metadata/_edit_lock_ = true

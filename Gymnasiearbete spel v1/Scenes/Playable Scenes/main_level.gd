@@ -85,9 +85,9 @@ func _physics_process(delta: float) -> void:
 	elif inputDirection.y < 0:
 		targetOffset.y = -targetDistance
 	
-		var colorTween = create_tween()
-		colorTween.set_trans(Tween.TRANS_LINEAR)
-		colorTween.tween_property($CanvasModulate, "color", Color(0.071, 0.071, 0.071), 1)
+	var colorTween = create_tween()
+	colorTween.set_trans(Tween.TRANS_LINEAR)
+	colorTween.tween_property($CanvasModulate, "color", Color(0.05, 0.05, 0.05), 60)
 
 	
 

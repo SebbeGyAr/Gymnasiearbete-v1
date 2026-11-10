@@ -178,8 +178,7 @@ label_settings = SubResource("LabelSettings_ch4um")
 
 [node name="MasterSoundSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SettingsVBox" unique_id=547061851]
 layout_mode = 2
-max_value = 40.0
-step = 2.0
+max_value = 50.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=289654118]
 stream = ExtResource("3_v78dc")

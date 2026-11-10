@@ -12,6 +12,9 @@ font_size = 100
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jqe8"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control" unique_id=718903573]
 layout_mode = 3
 anchors_preset = 15
@@ -131,8 +134,20 @@ text = "Quit Game"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=83177547]
 stream = ExtResource("4_ch4um")
-volume_db = -50.0
+volume_db = -80.0
 parameters/looping = true
+
+[node name="Panel" type="Panel" parent="." unique_id=214164260]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jqe8")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton" to="." method="_on_start_game_button_pressed"]

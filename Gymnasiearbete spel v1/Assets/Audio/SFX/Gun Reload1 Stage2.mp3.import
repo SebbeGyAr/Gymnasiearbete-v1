@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkxjfsh4i17da"
+path="res://.godot/imported/Gun Reload1 Stage2.mp3-d4c88edb8a02a95ebe646dafb42808bc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Gun Reload1 Stage2.mp3"
+dest_files=["res://.godot/imported/Gun Reload1 Stage2.mp3-d4c88edb8a02a95ebe646dafb42808bc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

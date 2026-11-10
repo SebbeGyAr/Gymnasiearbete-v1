@@ -5,9 +5,12 @@ extends Control
 
 func _ready() -> void:
 	# STARTAR MENYMUSIK SÅ FORT MAN KOMMER IN I SPELET
+	var audioTween = create_tween()
+	audioTween.set_trans(Tween.TRANS_LINEAR)
+	audioTween.tween_property($AudioStreamPlayer, "volume_db", -50, 1)
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
 	AudioServer.set_bus_volume_db(0, GlobalVariables.soundSlider)
-	preload("res://Scenes/Playable Scenes/main_map.tscn")
+	preload("res://Scenes/Cutscenes/beginning_cutscene.tscn")
 
 func _process(_delta: float) -> void:
 	# STÄNGER SPELET EFTER 0,4 SEKUNDER OM ESCAPE TRYCKS NED
@@ -15,7 +18,14 @@ func _process(_delta: float) -> void:
 		_on_quit_game_button_pressed()
 
 func _on_start_game_button_pressed() -> void:
-	# BYTER SCEN TILL HUVUDSCENEN EFTER 0,4 SEKUNDER (LITEN "TEXTANIMATION")
+	var audioTween = create_tween()
+	audioTween.set_trans(Tween.TRANS_LINEAR)
+	audioTween.tween_property($AudioStreamPlayer, "volume_db", -100, 0.4)
+	
+	var videoTween = create_tween()
+	videoTween.set_trans(Tween.TRANS_LINEAR)
+	videoTween.tween_property($Panel, "modulate", Color(0.0, 0.0, 0.0, 1.0), 0.4)
+
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game"
 	await get_tree().create_timer(0.1).timeout
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game."
@@ -24,8 +34,7 @@ func _on_start_game_button_pressed() -> void:
 	await get_tree().create_timer(0.1).timeout
 	$MarginContainer/VBoxContainer/ButtonsVBox/StartGameButton.text = "Starting Game..."
 	await get_tree().create_timer(0.1).timeout
-
-	get_tree().change_scene_to_file("res://Scenes/Cutscenes/beginning_cutscene.tscn")
+	change_scene()
 	
 func _on_quit_game_button_pressed() -> void:
 	# STÄNGER SPELET OM QUIT-KNAPPEN TRYCKS NED EFTER 0,4 SEKUNDER (LITEN "TEXTANIMATION")
@@ -50,3 +59,7 @@ func _on_input_map_button_pressed() -> void:
 	# SPARAR VAR MUSIKEN ÄR OCH BYTER SCEN TILL INPUT MAP SCENEN
 	GlobalVariables.musicProgress = $AudioStreamPlayer.get_playback_position()
 	get_tree().change_scene_to_file("res://UI/Menus/input_map.tscn")
+
+
+func change_scene():
+	get_tree().change_scene_to_file("res://Scenes/Cutscenes/beginning_cutscene.tscn")

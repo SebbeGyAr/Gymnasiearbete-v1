@@ -4,7 +4,7 @@ extends Node
 @onready var flashlightSprite: Sprite2D = null
 var musicProgress = 0.0
 var stamina = 100.0
-var soundSlider = 20
+var soundSlider = 40
 var fullscreen = false
 var resolutionSet = 2
 var framerateSet = 0

@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://cesripewa04wr"]
+
+[ext_resource type="Texture2D" uid="uid://dfijmkyssp524" path="res://Assets/Art/Entities/RådjurSebbeverSpritesheet.png" id="1_3nj34"]
+
+[sub_resource type="Animation" id="Animation_uavrq"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_j3lnk"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_3nj34"]
+resource_name = "run"
+length = 0.5333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666665, 0.3333333, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_akdi8"]
+resource_name = "walk"
+length = 1.0667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.2666667, 0.4000001, 0.5333333, 0.66666675, 0.8, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3lnk"]
+_data = {
+&"RESET": SubResource("Animation_uavrq"),
+&"idle": SubResource("Animation_j3lnk"),
+&"run": SubResource("Animation_3nj34"),
+&"walk": SubResource("Animation_akdi8")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uavrq"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_akdi8"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3lnk"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e7w85"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mhl8m"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ddg5q"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_68u04"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fe7vv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0di73"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3nj34"]
+states/idle/node = SubResource("AnimationNodeAnimation_uavrq")
+states/idle/position = Vector2(345, 100)
+states/run/node = SubResource("AnimationNodeAnimation_akdi8")
+states/run/position = Vector2(462, 147)
+states/walk/node = SubResource("AnimationNodeAnimation_j3lnk")
+states/walk/position = Vector2(462, 64)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_e7w85"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_mhl8m"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_ddg5q"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_68u04"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_fe7vv"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_0di73")]
+graph_offset = Vector2(-50, 9)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ok42"]
+radius = 8.0
+height = 26.0
+
+[node name="Deer" type="CharacterBody2D" unique_id=843200507]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1404858044]
+position = Vector2(0, -13.5)
+texture = ExtResource("1_3nj34")
+hframes = 4
+vframes = 3
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2134749789]
+libraries/ = SubResource("AnimationLibrary_j3lnk")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1895724146]
+tree_root = SubResource("AnimationNodeStateMachine_3nj34")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1300669027]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_7ok42")
+metadata/_edit_lock_ = true

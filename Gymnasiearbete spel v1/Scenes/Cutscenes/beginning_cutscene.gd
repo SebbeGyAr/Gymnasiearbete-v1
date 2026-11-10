@@ -16,9 +16,8 @@ func _ready() -> void:
 	textbox.queue_text("Unfortunately, that someone has to be me. ", "You")
 	textbox.queue_text("What a lovely way to spend my time. ", "You")
 	textbox.queue_text("God Damn, I'm driving out in the middle of nowhere. ", "You")
-	textbox.queue_text("So far from everything. ", "You")
-	textbox.queue_text("Hopefully, this ends up being a swift matter. ", "You")
-	textbox.queue_text("So I can return home soon enough. ", "You")
+	textbox.queue_text("I'm so far from everything. ", "You")
+	textbox.queue_text("Hopefully, this ends up being a swift matter, so I can return home soon enough.  ", "You")
 	textbox.queue_text("But hey, look on the bright side; I will have food for years to come, if the deer flesh is of sufficient quality. ", "You")
 	proceedBool = true
 
@@ -36,10 +35,13 @@ func _process(_delta: float) -> void:
 
 		if counter == 1: 
 			if textbox.textQueue == [] and textbox.currentState == textbox.State.READY:
-				var tween = create_tween()
-				tween.set_trans(Tween.TRANS_LINEAR)
-				tween.tween_property($VideoStreamPlayer, "speed_scale", 0, 1)
-				tween.connect("finished", change_scene)
+				var videoTween = create_tween()
+				var audioTween = create_tween()
+				videoTween.set_trans(Tween.TRANS_LINEAR)
+				videoTween.tween_property($VideoStreamPlayer, "speed_scale", 0, 1)
+				videoTween.connect("finished", change_scene)
+				videoTween.set_trans(Tween.TRANS_LINEAR)
+				videoTween.tween_property($AudioStreamPlayer, "volume_db", -100, 1)
 
 
 func change_scene():

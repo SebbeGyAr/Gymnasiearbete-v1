@@ -3,8 +3,7 @@
 [ext_resource type="VideoStream" uid="uid://biyt4jeo0d4uw" path="res://Assets/Art/TempArt/test2.ogv" id="1_ct4f8"]
 [ext_resource type="Script" uid="uid://jbeq7a5e2a5o" path="res://Scenes/Cutscenes/beginning_cutscene.gd" id="1_irsnq"]
 [ext_resource type="PackedScene" uid="uid://cuixffmlmd3d7" path="res://UI/Overlay/textbox.tscn" id="2_6r57t"]
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_irsnq"]
+[ext_resource type="AudioStream" uid="uid://bpvkykgg76kk2" path="res://Assets/Audio/Music/Intromusik.mp3" id="4_ba71s"]
 
 [node name="BeginningCutscene" type="Control" unique_id=1160966890]
 layout_mode = 3
@@ -41,6 +40,9 @@ loop = true
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1424071116]
-stream = SubResource("AudioStreamMP3_irsnq")
+stream = ExtResource("4_ba71s")
+volume_db = -40.0
+autoplay = true
+parameters/looping = true
 
 [editable path="Textbox"]

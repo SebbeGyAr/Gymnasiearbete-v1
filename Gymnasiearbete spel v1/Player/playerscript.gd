@@ -80,7 +80,7 @@ func reload():
 		await get_tree().create_timer(0.75).timeout
 		GlobalVariables.bulletsLeft += 1
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
-	
+
 	# EN SISTA TIMER SOM GÖR DET MINDRE LÖNSAMT ATT RELOADA EFTER VARJE SKOTT, 
 	# DÅ DET TAR 0,75 SEKUNDER EFTER ATT HA FYLLT HELA MAGASINET INNAN MAN KAN SKJUTA IGEN, VILKET GÖR DET INEFFEKTIVT ATT RELOADA EFTER VARJE SKOTT
 	await get_tree().create_timer(0.75).timeout
@@ -91,7 +91,7 @@ func reload():
 	
 	# LÅTER SPELAREN SKJUTA OCH RELOADA IGEN DÅ ALLA PROCESSER OCH COOLDOWNS ÄR KLARA
 	canShoot = true
-	
+
 
 func _physics_process(_delta): 
 	# CALLAR PÅ SKJUTFUNTKION OM canShoot OCH hasRifle STÄMMER SAMT ATT SPELAREN TRYCKER PÅ SKJUTKNAPPEN
@@ -158,7 +158,7 @@ func update_animation_parameters(moveInput : Vector2):
 	# ANIMATIONUPPDATERINGSFUNKTION
 	if moveInput != Vector2.ZERO:
 		animationTree.set("parameters/Walk/blend_position", moveInput)
-		animationTree.set("parameters/Idle/blend_position", moveInput) 
+		animationTree.set("parameters/Idle/blend_position", moveInput)
 
 func pick_new_state():
 	# BEDÖMER OM KARAKTÄREN GÅR, SPRINGER ELR STÅR STILLA, OCH KALLAR PÅ DEN RELEVANTA ANIMATIONEN

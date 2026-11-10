@@ -109,16 +109,13 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(581, 310)
 
-[node name="Sprite2D" parent="Player" index="1" unique_id=1882138924]
-frame = 10
-
-[node name="FlashlightSprite" parent="Player/FlashlightPivot" parent_id_path=PackedInt32Array(1622405903, 1486693460) index="0" unique_id=2090114102]
-position = Vector2(2.5, 1)
+[node name="PauseMenu" parent="Player" index="8" unique_id=953631337]
+visible = false
 
 [node name="UI" parent="." unique_id=1338327035 instance=ExtResource("4_tvgjd")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=385149479]
-color = Color(0.45, 0.45, 0.45, 1)
+color = Color(0.65543425, 0.65543425, 0.65543425, 1)
 
 [node name="TestMonster" parent="." unique_id=1024993463 instance=ExtResource("5_nfd1w")]
 position = Vector2(345, 286)

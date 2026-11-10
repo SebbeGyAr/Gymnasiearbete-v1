@@ -42,6 +42,7 @@ func _process(_delta: float) -> void:
 				if displayWithFont: 
 					display_text(displayWithFont)
 				else: display_text()
+
 		State.READING:
 			if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select")) and textSkippable:
 				text.visible_characters = -1

@@ -183,6 +183,6 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1153944169]
 stream = ExtResource("5_j81ll")
-volume_db = -30.0
+volume_db = -20.0
 autoplay = true
 parameters/looping = true

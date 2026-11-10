@@ -1,7 +1,6 @@
 extends Node2D
 
-# REMNANT FRÅN TESTSPELET
-#var Cow = preload("res://scenes/Non Character Entities/cow.tscn")
+
 @onready var player = $Player
 @onready var camera = $Player/Camera2D
 @onready var sprite2D = $Player/Sprite2D
@@ -23,7 +22,7 @@ func _ready() -> void:
 
 	# SÄTTER CAMERA-ZOOM, OM DET INTE VAR TYDLIGT NOG
 	camera.zoom = Vector2(5, 5)
-	textbox.queue_text("Hello", "Sebbe")
+	textbox.queue_text("Finally. Here. ", "You")
 	
 
 
@@ -85,6 +84,11 @@ func _physics_process(delta: float) -> void:
 		targetOffset.y = targetDistance
 	elif inputDirection.y < 0:
 		targetOffset.y = -targetDistance
+	
+		var colorTween = create_tween()
+		colorTween.set_trans(Tween.TRANS_LINEAR)
+		colorTween.tween_property($CanvasModulate, "color", Color(0.071, 0.071, 0.071), 1)
+
 	
 
 	

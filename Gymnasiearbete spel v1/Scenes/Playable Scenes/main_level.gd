@@ -6,7 +6,7 @@ extends Node2D
 @onready var camera = $Player/Camera2D
 @onready var sprite2D = $Player/Sprite2D
 @onready var flashlight = $Player/FlashlightPivot/FlashlightSprite
-
+@onready var textbox = $Textbox
 
 var muzzleFlip = false
 var flashlightOffsetX = 7.0
@@ -23,6 +23,8 @@ func _ready() -> void:
 
 	# SÄTTER CAMERA-ZOOM, OM DET INTE VAR TYDLIGT NOG
 	camera.zoom = Vector2(5, 5)
+	textbox.queue_text("Hello", "Sebbe")
+	
 
 
 

@@ -32,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("1_ct4f8")
+speed_scale = 2.0
 autoplay = true
 expand = true
 loop = true

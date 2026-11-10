@@ -7,6 +7,8 @@ enum State {
 	FINISHED
 }
 
+var textSkippable = true
+
 var displayWithFont = null #load("res://Assets/Fonts/KimsBitHand.ttf")
 
 # NUVARANDE LÄGE FÖR TEXTBOXEN
@@ -19,6 +21,7 @@ var tween = create_tween()
 var textReadRate = 0.05
 
 var textQueue = []
+var speakerQueue = []
 
 # ENKLA ATT KALLA PÅ OM DE ÄR VARIABLER
 @onready var textboxContainer = $TextboxContainer
@@ -40,7 +43,7 @@ func _process(_delta: float) -> void:
 					display_text(displayWithFont)
 				else: display_text()
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
+			if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select")) and textSkippable:
 				text.visible_characters = -1
 				tween.stop()
 				on_text_written()
@@ -50,9 +53,11 @@ func _process(_delta: float) -> void:
 				change_state(State.READY)
 				hide_textbox()
 
-func queue_text(nextText):
+func queue_text(nextText, speaker="No Speaker"):
 	textQueue.push_back(nextText)
+	speakerQueue.push_back(speaker)
 	
+
 # GÖMMER TEXTRUTAN, OBV
 func hide_textbox():
 	speakerText.text = ""
@@ -69,6 +74,7 @@ func show_textbox(speaker):
 # LÄGGER TILL TEXT MHA TWEEN FÖR ATT LÅNGSAMT AVSLÖJA TEXTEN
 func display_text(font=false):
 	var addedText = textQueue.pop_front()
+	var speaker = speakerQueue.pop_front()
 	# SKAPAR EN TWEEN SÅ ATT TEXTEN KAN AVSLÖJAS LÅNGSAMT
 	tween = create_tween()
 	tween.set_trans(Tween.TRANS_LINEAR)
@@ -77,7 +83,7 @@ func display_text(font=false):
 		text.add_theme_font_override("font", font)
 	
 	text.visible_characters = 0
-	show_textbox("Tester")
+	show_textbox(speaker)
 	
 	text.text = addedText
 	

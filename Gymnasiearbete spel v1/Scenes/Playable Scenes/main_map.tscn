@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bigwb8yqprkjw" path="res://UI/Overlay/ui.tscn" id="4_tvgjd"]
 [ext_resource type="Texture2D" uid="uid://dyyyh8angql3x" path="res://Assets/Art/Entities/Tall.png" id="5_eiwau"]
 [ext_resource type="PackedScene" uid="uid://bli4s78nld4jk" path="res://Entities/Creatures/test_monster.tscn" id="5_nfd1w"]
+[ext_resource type="PackedScene" uid="uid://cuixffmlmd3d7" path="res://UI/Overlay/textbox.tscn" id="9_58rbp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mhlh8"]
 texture = ExtResource("2_uxcei")
@@ -108,6 +109,12 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(581, 310)
 
+[node name="Sprite2D" parent="Player" index="1" unique_id=1882138924]
+frame = 10
+
+[node name="FlashlightSprite" parent="Player/FlashlightPivot" parent_id_path=PackedInt32Array(1622405903, 1486693460) index="0" unique_id=2090114102]
+position = Vector2(2.5, 1)
+
 [node name="UI" parent="." unique_id=1338327035 instance=ExtResource("4_tvgjd")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=385149479]
@@ -116,6 +123,12 @@ color = Color(0.45, 0.45, 0.45, 1)
 [node name="TestMonster" parent="." unique_id=1024993463 instance=ExtResource("5_nfd1w")]
 position = Vector2(345, 286)
 
+[node name="Textbox" parent="." unique_id=731812116 instance=ExtResource("9_58rbp")]
+
+[node name="TextboxContainer" parent="Textbox" index="0" unique_id=1580552439]
+offset_top = -398.0
+
 [editable path="Player"]
 [editable path="Player/FlashlightNode"]
 [editable path="UI"]
+[editable path="Textbox"]

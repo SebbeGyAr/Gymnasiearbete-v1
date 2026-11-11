@@ -14,9 +14,13 @@ var facingLeft = false
 
 func _ready() -> void:
 	var blackscreenTween = create_tween()
+	var audioTween = create_tween()
 	
 	blackscreenTween.set_trans(Tween.TRANS_LINEAR)
 	blackscreenTween.tween_property($CanvasLayer/Panel, "modulate", Color(0.0, 0.0, 0.0, 0.0), 2)
+	
+	audioTween.set_trans(Tween.TRANS_LINEAR)
+	audioTween.tween_property($UI/AudioStreamPlayer, "volume_db", -30, 2)
 	
 	# HAR ANVÄNTS FÖR ATT SPAWNA SPELAREN UTANFÖR HUSET I TESTSPELET, BEHÅLLER ÅT FRAMTIDA HUS
 #	var spawnName = SceneTransition.nextSpawnPoint
@@ -25,8 +29,11 @@ func _ready() -> void:
 #		if spawn_node:
 #			player.global_position = spawn_node.global_position
 
-	# SÄTTER CAMERA-ZOOM, OM DET INTE VAR TYDLIGT NOG
-	camera.zoom = Vector2(5, 5)
+	# SÄTTER CAMERA-ZOOM
+	var cameraTween = create_tween()
+	cameraTween.set_trans(Tween.TRANS_SINE)
+	cameraTween.tween_property(camera, "zoom", Vector2(5, 5), 2)
+
 	textbox.queue_text("Finally. Here. ", "You")
 	
 
@@ -92,7 +99,7 @@ func _physics_process(delta: float) -> void:
 	
 	var colorTween = create_tween()
 	colorTween.set_trans(Tween.TRANS_LINEAR)
-	colorTween.tween_property($CanvasModulate, "color", Color(0.05, 0.05, 0.05), 60)
+	colorTween.tween_property($CanvasModulate, "color", Color(0.05, 0.05, 0.05), 15)
 
 	
 

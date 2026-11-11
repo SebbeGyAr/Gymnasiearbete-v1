@@ -11,13 +11,13 @@ var framerateSet = 0
 var vsync = false
 var bulletsLeft = 5
 var hasFlashlight = true
-var flashlightEnabled = true
+var flashlightEnabled = false
 var hasRifle = true
 var flashlightBattery = 100
 var canShoot = false
 var playerCanShoot = false
 var rifleEquipped = false
-
+var gameJustStarted = true
 
 func _process(_delta: float) -> void:
 	# TOGGLE FLASHLIGHT FUNKTIONALITET

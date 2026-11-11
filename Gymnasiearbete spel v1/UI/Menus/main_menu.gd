@@ -5,9 +5,13 @@ extends Control
 
 func _ready() -> void:
 	# STARTAR MENYMUSIK SÅ FORT MAN KOMMER IN I SPELET
-	var audioTween = create_tween()
-	audioTween.set_trans(Tween.TRANS_LINEAR)
-	audioTween.tween_property($AudioStreamPlayer, "volume_db", -50, 1)
+	if GlobalVariables.gameJustStarted: 
+		$AudioStreamPlayer.volume_db = -80
+		var audioTween = create_tween()
+		audioTween.set_trans(Tween.TRANS_LINEAR)
+		audioTween.tween_property($AudioStreamPlayer, "volume_db", -50, 1)
+		GlobalVariables.gameJustStarted = false
+	
 	$AudioStreamPlayer.play(GlobalVariables.musicProgress)
 	AudioServer.set_bus_volume_db(0, GlobalVariables.soundSlider)
 	preload("res://Scenes/Cutscenes/beginning_cutscene.tscn")
@@ -37,6 +41,14 @@ func _on_start_game_button_pressed() -> void:
 	change_scene()
 	
 func _on_quit_game_button_pressed() -> void:
+	var audioTween = create_tween()
+	audioTween.set_trans(Tween.TRANS_LINEAR)
+	audioTween.tween_property($AudioStreamPlayer, "volume_db", -100, 0.4)
+	
+	var videoTween = create_tween()
+	videoTween.set_trans(Tween.TRANS_LINEAR)
+	videoTween.tween_property($Panel, "modulate", Color(0.0, 0.0, 0.0, 1.0), 0.4)
+	
 	# STÄNGER SPELET OM QUIT-KNAPPEN TRYCKS NED EFTER 0,4 SEKUNDER (LITEN "TEXTANIMATION")
 	$MarginContainer/VBoxContainer/ButtonsVBox/QuitGameButton.text = "Quitting Game"
 	await get_tree().create_timer(0.1).timeout

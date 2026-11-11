@@ -4,7 +4,7 @@ extends CharacterBody2D
 # GÖR SÅ ATT ENS STAMINARECOVERYSPEED DUBBLERAS FÖR TESTSYFTE SAMT GER OCH TAR FICKLAMPAN FRÅN SPELAREN
 
 const MOVEMENT_SPEED_CONST = 40
-const SPRINT_SPEED = 1.5
+const SPRINT_SPEED = 2
 const STAMINA_COOLDOWN_LENGTH = 100
 
 # ASSIGNAR VARIABLER (OBV)
@@ -77,13 +77,18 @@ func reload():
 	# EN "TEXTANIMATION" SOM VISAR HUR MÅNGA KULOR SOM ÄR KVAR I MAGASINET VID VARJE STEG, SAMT SER SCHYSST UT
 	while GlobalVariables.bulletsLeft < 5: 
 		$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
-		await get_tree().create_timer(0.75).timeout
+		$BulletInAudio.pitch_scale = randf_range(0.9, 1.0)
+		$BulletInAudio.play(0)
+		
+		await get_tree().create_timer(0.44).timeout
 		GlobalVariables.bulletsLeft += 1
 	$"../UI/GunMagNode/BulletCounterLabel".text = "Reloading...: %s/5" % GlobalVariables.bulletsLeft
 
 	# EN SISTA TIMER SOM GÖR DET MINDRE LÖNSAMT ATT RELOADA EFTER VARJE SKOTT, 
 	# DÅ DET TAR 0,75 SEKUNDER EFTER ATT HA FYLLT HELA MAGASINET INNAN MAN KAN SKJUTA IGEN, VILKET GÖR DET INEFFEKTIVT ATT RELOADA EFTER VARJE SKOTT
+	$GunCockAudio.play(0)
 	await get_tree().create_timer(0.75).timeout
+	
 	
 	# SÄTTER GlobalVariables.bulletsLeft TILL 5, JUST IN CASE SPELAREN LYCKAS MED NÅGOT SOM EN SLIGHT SAFEGUARD. 
 	GlobalVariables.bulletsLeft = 5
@@ -174,10 +179,10 @@ func pick_new_state():
 func pause_menu():
 	if paused: 
 		pauseMenu.hide()
-		Engine.time_scale = 1
+		get_tree().paused = false
 
 	else: 
 		pauseMenu.show()
-		Engine.time_scale = 0
+		get_tree().paused = true
 
 	paused = not paused

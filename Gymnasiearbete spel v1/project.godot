@@ -12,7 +12,7 @@ config_version=5
 
 config/name="gymnasiearbete v1"
 run/main_scene="uid://3q10rmv074sx"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 
 [autoload]
 
@@ -110,6 +110,7 @@ pause={
 
 [physics]
 
+2d/run_on_separate_thread=true
 3d/physics_engine="Jolt Physics"
 
 [rendering]
@@ -117,3 +118,4 @@ pause={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 anti_aliasing/quality/msaa_2d=1
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

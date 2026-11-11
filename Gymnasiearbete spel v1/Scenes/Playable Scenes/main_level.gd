@@ -99,7 +99,7 @@ func _physics_process(delta: float) -> void:
 	
 	var colorTween = create_tween()
 	colorTween.set_trans(Tween.TRANS_LINEAR)
-	colorTween.tween_property($CanvasModulate, "color", Color(0.05, 0.05, 0.05), 15)
+	colorTween.tween_property($CanvasModulate, "color", Color(0.05, 0.05, 0.05), 120)
 
 	
 

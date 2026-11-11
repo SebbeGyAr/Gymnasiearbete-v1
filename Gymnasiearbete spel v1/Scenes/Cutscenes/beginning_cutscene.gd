@@ -49,17 +49,17 @@ func _process(_delta: float) -> void:
 
 func finish_scene():
 	await get_tree().create_timer(1).timeout
-	var audioTween = create_tween()
 	var videoTween = create_tween()
-	
-	audioTween.set_trans(Tween.TRANS_LINEAR)
-	audioTween.tween_property($AudioStreamPlayer, "volume_db", -100, 2)
 	
 	videoTween.set_trans(Tween.TRANS_LINEAR)
 	videoTween.tween_property($VideoStreamPlayer, "speed_scale", 0, 2)
 	
 	await videoTween.finished
+	var audioTween = create_tween()
 	var blackscreenTween = create_tween()
+		
+	audioTween.set_trans(Tween.TRANS_LINEAR)
+	audioTween.tween_property($AudioStreamPlayer, "volume_db", -100, 2)
 	
 	blackscreenTween.set_trans(Tween.TRANS_LINEAR)
 	blackscreenTween.tween_property($Panel/Panel, "modulate", Color(0.0, 0.0, 0.0, 1.0), 2)

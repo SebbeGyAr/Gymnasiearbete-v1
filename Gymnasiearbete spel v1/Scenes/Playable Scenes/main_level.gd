@@ -13,6 +13,11 @@ var facingLeft = false
 
 
 func _ready() -> void:
+	var blackscreenTween = create_tween()
+	
+	blackscreenTween.set_trans(Tween.TRANS_LINEAR)
+	blackscreenTween.tween_property($CanvasLayer/Panel, "modulate", Color(0.0, 0.0, 0.0, 0.0), 2)
+	
 	# HAR ANVÄNTS FÖR ATT SPAWNA SPELAREN UTANFÖR HUSET I TESTSPELET, BEHÅLLER ÅT FRAMTIDA HUS
 #	var spawnName = SceneTransition.nextSpawnPoint
 #	if spawnName != "":

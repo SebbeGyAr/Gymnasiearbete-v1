@@ -12,9 +12,9 @@ func _ready() -> void:
 	textbox.textReadRate = 0.02
 	var videoTween = create_tween()
 	videoTween.set_trans(Tween.TRANS_LINEAR)
-	videoTween.tween_property($Panel, "modulate", Color(0.0, 0.0, 0.0, 0.0), 3)
+	videoTween.tween_property($Panel/Panel, "modulate", Color(0.0, 0.0, 0.0, 0.0), 3)
 	textbox.textReadRate = 0.02
-	await get_tree().create_timer(4).timeout
+	await videoTween.finished
 #	textbox.displayWithFont = load("res://Assets/Fonts/KimsBitHand.ttf")
 	textbox.queue_text("Ugh... ", "You")
 	textbox.queue_text("Okay, another deer hunting request from the municipality. ", "You")
@@ -40,10 +40,10 @@ func _process(_delta: float) -> void:
 			counter += 1
 			
 			await get_tree().create_timer(2).timeout
+			
 			textbox.queue_text("Now I'm here! ", "You")
 			textbox.queue_text("Let me get this over with. ", "You")
-			return
-		
+
 		isFinishing = true
 		finish_scene()
 
@@ -58,6 +58,12 @@ func finish_scene():
 	videoTween.set_trans(Tween.TRANS_LINEAR)
 	videoTween.tween_property($VideoStreamPlayer, "speed_scale", 0, 2)
 	
-	await audioTween.finished
-	await get_tree().create_timer(2).timeout
+	await videoTween.finished
+	var blackscreenTween = create_tween()
+	
+	blackscreenTween.set_trans(Tween.TRANS_LINEAR)
+	blackscreenTween.tween_property($Panel/Panel, "modulate", Color(0.0, 0.0, 0.0, 1.0), 2)
+	
+	await blackscreenTween.finished
+	
 	get_tree().change_scene_to_file("res://Scenes/Playable Scenes/main_map.tscn")

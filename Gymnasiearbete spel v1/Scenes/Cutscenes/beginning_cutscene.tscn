@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://jbeq7a5e2a5o" path="res://Scenes/Cutscenes/beginning_cutscene.gd" id="1_irsnq"]
 [ext_resource type="PackedScene" uid="uid://cuixffmlmd3d7" path="res://UI/Overlay/textbox.tscn" id="2_6r57t"]
 [ext_resource type="AudioStream" uid="uid://bpvkykgg76kk2" path="res://Assets/Audio/Music/Intromusik.mp3" id="4_ba71s"]
-[ext_resource type="Texture2D" uid="uid://1qtiglxc5aoy" path="res://Assets/Art/TempArt/Bilkörning1CutsceneNew-Sheet.png" id="5_sru5y"]
+[ext_resource type="Texture2D" uid="uid://4heehp2ryrko" path="res://Assets/Art/TempArt/BilkörningCutscene-Sheet.png" id="5_sru5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba71s"]
 bg_color = Color(0, 0, 0, 1)
@@ -48,7 +48,6 @@ _data = {
 }
 
 [node name="BeginningCutscene" type="Control" unique_id=1160966890]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,7 +57,6 @@ grow_vertical = 2
 script = ExtResource("1_irsnq")
 
 [node name="Panel" type="CanvasLayer" parent="." unique_id=11052447]
-visible = false
 
 [node name="Panel" type="Panel" parent="Panel" unique_id=838594480]
 anchors_preset = 15
@@ -81,7 +79,6 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=660060311]
-visible = false
 show_behind_parent = true
 z_index = -2
 layout_mode = 1
@@ -103,14 +100,11 @@ volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2055861702]
-position = Vector2(960.00006, 540.00006)
-scale = Vector2(8.000001, 8)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=220434964]
+visible = false
 texture = ExtResource("5_sru5y")
-hframes = 128
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1337657543]
-root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_kykes")
 speed_scale = 2.5
 
